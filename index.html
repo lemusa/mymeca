@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MyMECA — Pay Calculator for Nurses</title>
+<meta name="description" content="A simple pay calculator for nurses. Fast, easy, accurate.">
+
+<!-- (optional but nice) -->
+<link rel="icon" href="favicon.ico">
+<link rel="canonical" href="https://mymeca.app/">
+<meta name="theme-color" content="#24ACDD">
+
+  <meta charset="utf-8" />
+  <title>MyMECA – A Pay Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+  <style>
+    :root { --shot-h: 500px; }
+
+    /* Compact the middle section */
+    .features3{
+      max-width:1200px;margin:0 auto;padding:16px 12px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    }
+    .feature{
+      position:relative; display:flex; flex-direction:column; gap:10px;
+      padding:12px; border-radius:12px; border:1px solid #e6e6e6;
+    }
+    .feature figure{margin:0}
+    .feature img{width:100%;max-height:var(--shot-h);object-fit:contain;display:block}
+    .copy h3{margin:4px 0 6px;font-size:clamp(18px,2.1vw,22px)}
+    .copy ul{margin:0;padding-left:18px}
+    .copy li{margin:2px 0;line-height:1.35}
+
+    /* Numbered progress badges and step colours */
+    .step-badge{
+      position:absolute; top:10px; left:10px; width:28px; height:28px;
+      border-radius:50%; display:grid; place-items:center; font-size:14px;
+      background:#fff; border:2px solid var(--accent); color:var(--accent);
+      line-height:1;
+    }
+    .step1{ --accent:#0b6b3a; background:#e9f7ef; }
+    .step2{ --accent:#1a73e8; background:#eef3ff; }
+    .step3{ --accent:#b06000; background:#fff4e6; }
+
+    /* Store badges + BMC button */
+    .actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .store-badge img { height:50px; display:block; }
+    .bmc-btn{
+      display:inline-flex; align-items:center; gap:8px;
+      text-decoration:none; background:#FFDD00; padding:10px 12px;
+      border-radius:6px; font-weight:700; color:#000;
+    }
+    .bmc-btn img{ height:24px; display:block; }
+
+    /* Responsive */
+    @media (max-width:1024px){ .features3{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:640px){ .features3{grid-template-columns:1fr} }
+  </style>
+</head>
+
+<body class="is-preload">
+
+  <!-- Header -->
+  <header id="header">
+    <div class="content">
+      <h1 class="brand">
+  <a href="#">
+    <img src="images/logo.png" alt="MyMECA logo">
+  </a>
+</h1>
+      <h2>Never guess your pay again</h2><p>Calculations for NZNO-HNZ medical professionals.<br>Fast. Easy. Accurate.</p>
+      <ul class="actions">
+        <li class="store-badge">
+          <a href="https://play.google.com/store/apps/details?id=com.example.app" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+          </a>
+        </li>	  
+        <li class="store-badge">
+          <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+          </a>
+        </li>
+        <li><a href="#two" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
+      </ul>
+    </div>
+    <div class="image phone">
+      <div class="image"><img src="images/promo.png" alt="MyMECA preview"></div>
+    </div>
+  </header>
+
+  <!-- Features -->
+  <section id="two" class="wrapper">
+    <section class="features3">
+      <!-- 1 -->
+      <article class="feature step1">
+        <span class="step-badge" aria-hidden="true">1</span>
+        <figure><img src="images/settings.png" alt="Settings screen"></figure>
+        <div class="copy">
+          <h3>Tailored to You</h3>
+          <ul>
+            <li>Set payscale & KiwiSaver once</li>
+            <li>Toggle student loan & levy</li>
+            <li>Choose casual or permanent</li>
+            <li>Saves your details</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="feature step2">
+        <span class="step-badge" aria-hidden="true">2</span>
+        <figure><img src="images/shifts.png" alt="Shifts screen"></figure>
+        <div class="copy">
+          <h3>Your Shifts, Your Schedule</h3>
+          <ul>
+            <li>Full fortnight captured</li>
+            <li>Pick common shift types fast</li>
+            <li>Public holidays also calculated</li>
+            <li>Penalties & loadings built in</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="feature step3">
+        <span class="step-badge" aria-hidden="true">3</span>
+        <figure><img src="images/pay.png" alt="Pay screen"></figure>
+        <div class="copy">
+          <h3>Your Pay</h3>
+          <ul>
+            <li>Instant gross & net payments</li>
+            <li>Summary of deductions made</li>
+            <li>Summary of penalties applied</li>
+            <li>Summary of hours worked vs hours paid</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- Story/CTA -->
+  <section id="three" class="wrapper style2 special">
+    <header class="major">
+      <h2>Working out your pay shouldn’t be confusing.</h2>
+      <p>MyMECA was created by the husband of a nurse after seeing how tricky it can be to figure out what each shift really means for your earnings.<br>
+      <strong>The aim is simple:</strong> to help healthcare workers understand their entitlements and see how their hard work translates into their bank balance.</p>
+    </header>
+
+    <ul class="actions">
+      <li class="store-badge">
+        <a href="https://play.google.com/store/apps/details?id=com.example.app" target="_blank" rel="noopener noreferrer">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+        </a>
+      </li>
+	  		  <li>
+        <a class="bmc-btn" href="https://www.buymeacoffee.com/shmake" target="_blank" rel="noopener noreferrer">
+          <img src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-3.svg" alt="" aria-hidden="true">Buy me a coffee
+        </a>
+      </li>
+      <li class="store-badge">
+        <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+      </li>	  
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon brands fa-facebook-f"><span class="label"></span></a></li>
+    </ul>
+    <p class="copyright">&copy; SH:MAKE 2025</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
