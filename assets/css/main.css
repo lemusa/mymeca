@@ -265,3 +265,122 @@ header.major::after {
   margin: .35rem auto 0;
 }
 
+/* App Store–style "Enter App" badge */
+.enter-app a{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--cta-h);                 /* matches your other CTAs */
+  padding: 0 14px;
+  border-radius: 10px;                   /* App Store badge radius */
+  background: #000;
+  color: #fff;
+  box-shadow: 0 2px 0 rgba(0,0,0,.15),
+              inset 0 0 0 1px rgba(255,255,255,.15);
+}
+.enter-app a:hover{ background:#111; }
+.enter-app a:active{ background:#151515; }
+
+.enter-app .ea-icon{
+  width: calc(var(--cta-h) * 0.5);
+  height: calc(var(--cta-h) * 0.5);
+  display: block;
+  flex: 0 0 auto;
+  /* icon styling */
+  fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.enter-app .ea-lines{
+  display: flex; flex-direction: column; line-height: 1;
+}
+.enter-app .ea-lines small{
+  font-size: clamp(10px, .9vw, 12px);
+  opacity: .85; letter-spacing: .03em;
+}
+.enter-app .ea-lines strong{
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 700; letter-spacing: .01em;
+}
+
+/* Make sure no dotted underline sneaks in */
+#header .actions .enter-app a{ border-bottom: 0 !important; }
+
+/* ---------- Fix hero stacking on mobile ---------- */
+
+/* Let the two columns behave on desktop */
+#header { gap: 3vw; }
+#header > .content,
+#header > .image.phone { flex: 1 1 50%; min-width: 0; }
+
+/* Stack on narrow screens */
+@media (max-width: 900px){
+  #header{
+    flex-direction: column-reverse;      /* image below, text above */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5rem 1.25rem 3rem;
+    gap: 2rem;
+  }
+
+  /* Make each child full width and center the text */
+  #header > .content,
+  #header > .image.phone{ flex: 0 0 auto; width: 100%; }
+
+  #header .content{
+    margin: 0;                 /* kill the negative desktop margin */
+    text-align: center;
+  }
+
+  /* Center the CTA rows on mobile */
+  #header .actions{
+    justify-content: center;
+  }
+
+  /* Phone image: centered and sized by viewport */
+  #header .image.phone{ margin: 0 auto; max-width: 520px; }
+  #header .image.phone .image{ height: clamp(320px, 60dvh, 680px); }
+  #header .image.phone img{ height: 100%; width: auto; display: block; }
+}
+
+/* Optional: extra-tight phones */
+@media (max-width: 420px){
+  #header .image.phone .image{ height: 55dvh; }
+}
+
+/* --- HERO: stop mobile cropping --- */
+
+/* Use min-height instead of a fixed height (works on desktop too) */
+#header{
+  height: auto !important;          /* override earlier 100vh */
+  min-height: 100dvh;               /* fill the screen, but allow growth */
+}
+
+/* Fallback for older browsers that don't support dvh */
+@supports not (height: 1dvh) {
+  #header{ min-height: 100vh; }
+}
+
+/* Mobile stack + safe spacing */
+@media (max-width: 900px){
+  #header{
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4rem 1.25rem calc(3rem + env(safe-area-inset-bottom));
+    gap: 2rem;
+    background-attachment: scroll;  /* iOS smoothness */
+  }
+
+  /* Make children full width */
+  #header > .content,
+  #header > .image.phone{ width: 100%; flex: 0 0 auto; }
+
+  /* Center copy & CTAs on mobile */
+  #header .content{ text-align: center; margin: 0; }
+  #header .actions{ justify-content: center; }
+
+  /* Cap phone height so it never pushes CTAs off-screen */
+  #header .image.phone{ margin: 0 auto; max-width: 520px; }
+  #header .image.phone .image{ height: clamp(320px, 56dvh, 640px); }
+  #header .image.phone img{ height: 100%; width: auto; display: block; }
+}
