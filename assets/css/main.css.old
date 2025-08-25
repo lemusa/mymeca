@@ -1,0 +1,389 @@
+@import url("fontawesome-all.min.css");
+
+/* -----------------------------------
+   Base / Reset
+----------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #444;
+  -webkit-text-size-adjust: none;
+  font: 400 16px/1.5 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.015em;
+}
+
+/* Disable animations while is-preload is present */
+body.is-preload *, body.is-preload *::before, body.is-preload *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Links & text */
+a { color: inherit; text-decoration: none; transition: color .2s, border-color .2s; }
+a:hover { color: #4696e5; }
+
+/* Typography */
+strong, b { font-weight: 700; }
+h1, h2, h3, h4, h5, h6 { margin: 0 0 1em; line-height: 1.15; font-weight: 400; color: #333; }
+p { margin: 0 0 2em; }
+
+/* Lists */
+ul { margin: 0 0 2em; padding-left: 1em; }
+ul li { padding-left: .5em; }
+
+/* Actions rows */
+ul.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Footer social icons */
+ul.icons { list-style: none; padding: 0; margin: 0; }
+ul.icons li { display: inline-block; padding-right: 1.5em; }
+ul.icons li:last-child { padding-right: 0; }
+ul.icons .icon::before { font-size: 1.75rem; }
+
+/* Buttons (generic) */
+.button {
+  display: inline-block;
+  padding: 0 1.25em;
+  height: 2.6em;
+  line-height: 2.6em;
+  border-radius: 6px;
+  font-weight: 700;
+  color: #828282 !important;
+  box-shadow: inset 0 0 0 2px #e6e6e6;
+  transition: background-color .2s;
+}
+.button:hover { background: rgba(144,144,144,.075); }
+.button:active { background: rgba(144,144,144,.15); }
+
+/* Font Awesome / button icons */
+.icon {
+  position: relative;
+  text-decoration: none;
+  border-bottom: 0;
+}
+.icon::before{
+  display: inline-block;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+.icon.solid::before { font-weight: 900; }
+.icon.brands::before { font-family: "Font Awesome 5 Brands"; }
+.button.icon { padding-left: 1.1em; }
+.button.icon::before { margin-right: .55em; }
+
+/* -----------------------------------
+   Sections / Wrappers
+----------------------------------- */
+.wrapper {
+  padding: 4.5em 0 2.5em;
+  background: #fff;
+  border-bottom: 2px solid #eee;
+}
+.wrapper.style2 { background: #fbfbfb; }
+.wrapper.style2.special { text-align: center; }
+
+header.major { margin: 0 0 2.5em; text-align: center; }
+header.major::after {
+  content: "";
+  display: block;
+  width: 4em;
+  margin: 2em auto 0;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+/* -----------------------------------
+   Hero Header (#header)
+----------------------------------- */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw; /* space between text + image */
+  padding: 4.5em 0 2.5em;
+  background-color: #24ACDD;
+  color: #EEE;
+  background-image: url("images/overlay.png"), url("images/pattern-size1.svg");
+  background-position: top left, center center;
+  background-attachment: fixed, fixed;
+  background-size: auto, cover;
+  height: 100vh;
+  min-height: 35em;
+}
+#header a { color: #fff; border-bottom: 0; }
+#header .content { text-align: right; margin: -3.5em 2em 0 0; }
+#header h1, #header h2, #header h3, #header p { color: #fff; }
+#header h1 { font-size: clamp(2.2rem, 3.8vw, 4.25rem); font-weight: 700; margin-bottom: .5em; letter-spacing: -0.02em; }
+#header p  { font-size: clamp(1.1rem, 1.5vw, 1.6rem); line-height: 1.4; opacity: .98; letter-spacing: -0.02em; }
+
+/* Brand logo in hero (replaces text heading) */
+#header h1.brand { margin: 0 0 0.6rem; }
+#header h1.brand a { display: inline-block; }
+#header h1.brand img{
+  height: clamp(60px, 10.5dvh, 180px);
+  width: auto;
+  max-width: min(70vw, 780px);
+  display: block;
+}
+@supports not (height: 1dvh){
+  #header h1.brand img{ height: clamp(60px, 10.5vh, 180px); }
+}
+
+/* Promo image sized by viewport height */
+#header .image.phone { width: auto; }
+#header .image.phone .image{
+  height: clamp(320px, 68dvh, 860px);
+}
+#header .image.phone img{
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* -----------------------------------
+   CTA System (shared vars)
+   - two badges right-aligned on row 1
+   - Learn More full-width row below, right-aligned
+----------------------------------- */
+:root { --cta-h: clamp(44px, 6dvh, 60px); --cta-radius: 8px; }
+
+#header .actions{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 12px;
+  margin-top: clamp(12px, 1.5vh, 20px);
+}
+#header .actions a{ border-bottom: 0 !important; }
+
+#header .actions .store-badge a{
+  display: inline-flex;
+  align-items: center;
+  height: var(--cta-h);
+}
+#header .actions .store-badge img{
+  height: var(--cta-h) !important;
+  width: auto;
+  display: block;
+}
+
+/* Learn More row */
+#header .actions li:last-child{
+  flex: 1 0 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+#header .actions li:last-child .button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--cta-h);
+  line-height: 1;
+  padding: 0 1.1em;
+  border-radius: var(--cta-radius);
+  color: #fff !important;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.7);
+  background: transparent;
+  transition: background-color .2s, box-shadow .2s;
+}
+#header .actions li:last-child .button:hover{ background: rgba(255,255,255,.12); }
+#header .actions li:last-child .button:active{ background: rgba(255,255,255,.18); }
+#header .actions li:last-child .button.icon::before{
+  margin-right: .55em;
+  font-weight: 900;
+  font-size: calc(var(--cta-h) * 0.4);
+}
+
+/* -----------------------------------
+   Bottom CTA row (wrapper.style2.special)
+   - center the badges/buttons and reuse heig
+
+
+/* Center the bottom CTA row in section #three */
+#three ul.actions{
+  display:flex;
+  justify-content:center !important;
+  align-items:center;
+  gap:12px;
+  margin: 0 auto 1rem;   /* centers the flex container itself */
+}
+
+/* Center the footer contents */
+#footer ul.icons{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin: 0 0 .75rem;
+  padding:0;
+}
+#footer .copyright{
+  text-align:center;
+  margin:.5rem 0 0;
+}
+
+/* ==== Fix: 1–2–3 cards full-width + centered text ==== */
+.features3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: stretch;   /* let items fill their column */
+  align-items: start;
+}
+
+.features3 .feature{
+  width: 100%;              /* prevent “skinny” cards */
+  align-items: center;      /* center image + copy inside the card */
+  text-align: center;       /* center headings/paragraphs */
+}
+
+.features3 .feature figure{
+  width: 100%;
+  display: flex;
+  justify-content: center;  /* center the screenshot */
+}
+
+.features3 .feature .copy ul{
+  display: inline-block;    /* centers the list block */
+  text-align: left;         /* keep bullets left-aligned */
+  padding-left: 1.1em;
+  margin: .35rem auto 0;
+}
+
+/* App Store–style "Enter App" badge */
+.enter-app a{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--cta-h);                 /* matches your other CTAs */
+  padding: 0 14px;
+  border-radius: 10px;                   /* App Store badge radius */
+  background: #000;
+  color: #fff;
+  box-shadow: 0 2px 0 rgba(0,0,0,.15),
+              inset 0 0 0 1px rgba(255,255,255,.15);
+}
+.enter-app a:hover{ background:#111; }
+.enter-app a:active{ background:#151515; }
+
+.enter-app .ea-icon{
+  width: calc(var(--cta-h) * 0.5);
+  height: calc(var(--cta-h) * 0.5);
+  display: block;
+  flex: 0 0 auto;
+  /* icon styling */
+  fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.enter-app .ea-lines{
+  display: flex; flex-direction: column; line-height: 1;
+}
+.enter-app .ea-lines small{
+  font-size: clamp(10px, .9vw, 12px);
+  opacity: .85; letter-spacing: .03em;
+}
+.enter-app .ea-lines strong{
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 700; letter-spacing: .01em;
+}
+
+/* Make sure no dotted underline sneaks in */
+#header .actions .enter-app a{ border-bottom: 0 !important; }
+
+/* ---------- Fix hero stacking on mobile ---------- */
+
+/* Let the two columns behave on desktop */
+#header { gap: 3vw; }
+#header > .content,
+#header > .image.phone { flex: 1 1 50%; min-width: 0; }
+
+/* Stack on narrow screens */
+@media (max-width: 900px){
+  #header{
+    flex-direction: column-reverse;      /* image below, text above */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5rem 1.25rem 3rem;
+    gap: 2rem;
+  }
+
+  /* Make each child full width and center the text */
+  #header > .content,
+  #header > .image.phone{ flex: 0 0 auto; width: 100%; }
+
+#header .content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;      /* push content to right edge of column */
+  text-align: center;         /* centre the text itself */
+  margin: 0;                  /* clear the negative margin */
+}
+
+  /* Center the CTA rows on mobile */
+  #header .actions{
+    justify-content: center;
+  }
+
+  /* Phone image: centered and sized by viewport */
+  #header .image.phone{ margin: 0 auto; max-width: 520px; }
+  #header .image.phone .image{ height: clamp(320px, 60dvh, 680px); }
+  #header .image.phone img{ height: 100%; width: auto; display: block; }
+}
+
+/* Optional: extra-tight phones */
+@media (max-width: 420px){
+  #header .image.phone .image{ height: 55dvh; }
+}
+
+/* --- HERO: stop mobile cropping --- */
+
+/* Use min-height instead of a fixed height (works on desktop too) */
+#header{
+  height: auto !important;          /* override earlier 100vh */
+  min-height: 100dvh;               /* fill the screen, but allow growth */
+}
+
+/* Fallback for older browsers that don't support dvh */
+@supports not (height: 1dvh) {
+  #header{ min-height: 100vh; }
+}
+
+/* Mobile stack + safe spacing */
+@media (max-width: 900px){
+  #header{
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4rem 1.25rem calc(3rem + env(safe-area-inset-bottom));
+    gap: 2rem;
+    background-attachment: scroll;  /* iOS smoothness */
+  }
+
+  /* Make children full width */
+  #header > .content,
+  #header > .image.phone{ width: 100%; flex: 0 0 auto; }
+
+  /* Center copy & CTAs on mobile */
+  #header .content{ text-align: center; margin: 0; }
+  #header .actions{ justify-content: center; }
+
+  /* Cap phone height so it never pushes CTAs off-screen */
+  #header .image.phone{ margin: 0 auto; max-width: 520px; }
+  #header .image.phone .image{ height: clamp(320px, 56dvh, 640px); }
+  #header .image.phone img{ height: 100%; width: auto; display: block; }
+}
