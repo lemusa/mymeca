@@ -615,8 +615,59 @@ header.major { margin-bottom: 2rem; }
 
 /* Down-arrow: respect safe-area and keep visible on notched devices */
 .scroll-down{
-  bottom: calc(env(safe-area-inset-bottom, 0) + 14px);
+  bottom: calc(env(safe-area-inset-bottom, 0) + 54px);
 }
 
 /* (Optional) Smooth scroll for in-page anchors like the down-arrow */
 html { scroll-behavior: smooth; }
+
+
+ :root{
+      --brand-blue: #24ACDD;
+      --brand-blue-ink: #05386b;
+      --section-bg: #d8f0f9;
+      --free-col: #f4f6f8;
+      --sub-col: #eef8fd;
+      --border: #dddddd;
+      --text: #333333;
+      --tick: #198754;
+      --cross: #E74C3C;
+      --soon: #E67E22;
+    }
+
+    table{ width:100%; border-collapse:collapse; font-size:14px; }
+    th, td{ border:1px solid var(--border); padding:10px 12px; text-align:center; vertical-align:middle; }
+
+    thead th{ background: var(--brand-blue); color:#fff; font-weight:600; }
+
+    td:first-child, th:first-child{ width:65%; text-align:left; }
+    td:nth-child(2), th:nth-child(2),
+    td:nth-child(3), th:nth-child(3){ width:17.5%; }
+
+    .section{ background: var(--section-bg); color: var(--brand-blue-ink); font-weight:600; text-align:left; }
+
+    .sub{ padding-left:22px; }
+
+    .data-row td.tier-free{ background: var(--free-col); }
+    .data-row td.tier-sub{ background: var(--sub-col); }
+
+    .data-row:nth-child(even) td:first-child{ background:#fafafa; }
+
+    .check{ color: var(--tick); font-weight:700; }
+    .cross{ color: var(--cross); font-weight:700; }
+    .soon{ color: var(--soon); font-weight:700; }
+
+    /* badges */
+    .badge{
+      display:inline-block; font-size:12px; line-height:1; padding:3px 7px;
+      border-radius:999px; margin-left:6px; vertical-align:middle;
+    }
+    .badge-soon{ background:#fff3cd; color:#8a6d3b; border:1px solid #ffe8a3; }
+
+    .legend{ font-size:12px; color:#666; margin-top:8px; }
+	
+	.features-table{
+	margin: 1.5em auto;   /* top/bottom spacing + auto left/right = centred */
+	  width: 70%;           /* optional: narrower than full screen */
+	  border-collapse: collapse;
+	}
