@@ -671,3 +671,23 @@ html { scroll-behavior: smooth; }
 	  width: 70%;           /* optional: narrower than full screen */
 	  border-collapse: collapse;
 	}
+	
+	@media {
+	.features-table{width: 100%; }
+	}
+	
+	@media (max-width: 640px) {
+  table {
+	font-size: 12px;     /* shrink table text */
+  }
+  th, td {
+    padding: 6px 8px;    /* tighten cell spacing */
+  }
+  .badge {
+    font-size: 10px;     /* shrink badges */
+    padding: 2px 6px;
+  }
+  .legend {
+    font-size: 11px;     /* shrink legend text */
+  }
+}
