@@ -24,6 +24,38 @@ ul{
 	background:#24ACDD;
 	color:#fff
 }
+#header .content,
+#header .image.phone {
+  flex: 0 0 50%;   /* don’t grow or shrink, fixed at 50% */
+  max-width: 50%;  /* enforce the half-width cap */
+}
+/* Scale phone image container down on mobile */
+@media (max-width: 900px) {
+  /* Make the container span full width but stay centred */
+  #header .image.phone {
+    width: 100%;
+    max-width: 360px;   /* prevent it blowing up */
+    margin: 0 auto;     /* centres the block */
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Scale the inner frame responsively */
+  #header .image.phone .image {
+    width: 100%;
+    max-width: 100%;    /* match container */
+    height: auto;       /* scale naturally */
+    max-height: 480px;  /* optional vertical cap */
+  }
+
+  /* Ensure the phone image scales with width */
+  #header .image.phone img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;     /* centres the image inside */
+  }
+}
 #header{
 	box-sizing:border-box;
 	min-height:100dvh
@@ -711,7 +743,7 @@ td:nth-child(2),th:nth-child(2),td:nth-child(3),th:nth-child(3){
 		width:100%
 }
 }
-@media (max-width:640px){
+@media (max-width:900px){
 	.badge{
 		font-size:10px;
 		padding:2px 6px
