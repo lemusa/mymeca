@@ -263,7 +263,7 @@ img {
   border-radius: 12px;
   background: #fff;
   padding: 18px;
-  min-height: 420px;
+  min-height: 70vh;
 }
 
 .slide .copy {
@@ -581,7 +581,7 @@ img {
   }
   
   .slide .media img {
-    max-height: 400px;
+    max-height: 320px;
     margin-bottom: 10px;
   }
   
