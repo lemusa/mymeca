@@ -20,7 +20,8 @@
           <a class="btn-primary" href="https://mymeca.glide.page"><img src="images/AppIconWhiteBG.png" alt="App icon">
 			  <span>Enter App</span></a>
           <a class="btn" href="#carousel">See Features</a>
-		  <a class="btn-beer" href="https://www.buymeacoffee.com/shmake" target="_blank">Buy Me A Beer</a>
+		  <a class="btn-beer" href="https://www.buymeacoffee.com/shmake" target="_blank"><img src="images/beer.png" alt="App icon">
+			  <span>Buy Me A Beer</span></a>
         </div>
       </div>
       <div class="col visual">
@@ -39,7 +40,7 @@
     <section id="carousel" class="carousel">
       <div class="track" aria-label="Feature slides">
 	  <!-- Slide 1 -->
-	<article class="slide step1">
+	<article id="slide-1" class="slide step1">
 	  <div class="slide-inner">
 		<span class="step-badge" aria-hidden="true">1</span>
 
@@ -71,7 +72,7 @@
 	</article>
 
 	<!-- Slide 2 -->
-	<article class="slide step2">
+	<article id="slide-2" class="slide step2">
 	  <div class="slide-inner">
 		<span class="step-badge" aria-hidden="true">2</span>
 		<div class="media">
@@ -98,7 +99,7 @@
 	</article>
 
 	<!-- Slide 3 -->
-	<article class="slide step3">
+	<article id="slide-3" class="slide step3">
 	  <div class="slide-inner">
 		<span class="step-badge" aria-hidden="true">3</span>
 
@@ -126,11 +127,14 @@
 	</article>
 
       <!-- dots -->
-      <nav class="dots" aria-label="Slide navigation">
-        <a href="#slide-1" class="dot" aria-label="Slide 1"></a>
-        <a href="#slide-2" class="dot" aria-label="Slide 2"></a>
-        <a href="#slide-3" class="dot" aria-label="Slide 3"></a>
-      </nav>
+		<nav class="dots" aria-label="Slide navigation">
+		  <button type="button" class="dot" aria-label="Slide 1"
+			onclick="document.querySelector('#slide-1').scrollIntoView({behavior:'smooth'});"></button>
+		  <button type="button" class="dot" aria-label="Slide 2"
+			onclick="document.querySelector('#slide-2').scrollIntoView({behavior:'smooth'});"></button>
+		  <button type="button" class="dot" aria-label="Slide 3"
+			onclick="document.querySelector('#slide-3').scrollIntoView({behavior:'smooth'});"></button>
+		</nav>
     </section>
 
 	<section class="feature-comparison">
@@ -158,12 +162,9 @@
 
 			<!-- PDRP -->
 			<tr class="section"><td colspan="3">PDRP</td></tr>
-			<tr class="data-row"><td class="sub">RN – Proficient</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-			<tr class="data-row"><td class="sub">RN – Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-			<tr class="data-row"><td class="sub">EN – Proficient</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-			<tr class="data-row"><td class="sub">EN – Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-			<tr class="data-row"><td class="sub">Mental Health Assistant – Merit 1</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-			<tr class="data-row"><td class="sub">Mental Health Assistant – Merit 2</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">RN – Proficient / Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">EN – Proficient / Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Mental Health Assistant – Merit 1 / Merit 2</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
 
 			<!-- Breakdowns -->
 			<tr class="section"><td colspan="3">Breakdowns</td></tr>
@@ -176,12 +177,15 @@
 			<tr class="data-row"><td class="sub">Duty Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
 			<tr class="data-row"><td class="sub">Hours Worked Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
 			<tr class="data-row"><td class="sub">Hours Paid Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Estimated Annual Income</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Averaged Fortnight Pay<span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
 
 			<!-- Roster Length -->
 			<tr class="section"><td colspan="3">Roster Length</td></tr>
 			<tr class="data-row"><td class="sub">One Fortnight</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
 			<tr class="data-row"><td class="sub">Two Fortnights <span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
 			<tr class="data-row"><td class="sub">Three Fortnights <span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
+			<tr class="data-row"><td class="sub">Shift Calendar <span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
 
 			<!-- Shift Types -->
 			<tr class="section"><td colspan="3">Shift Types</td></tr>
