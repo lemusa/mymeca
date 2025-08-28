@@ -1,334 +1,304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MyMECA — Pay Calculator for Nurses</title>
   <meta name="description" content="A simple pay calculator for nurses. Fast, easy, accurate.">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <meta name="author" content="SHMAKE">
+  <meta name="keywords" content="nurses, pay calculator, NZNO, MyMECA, salary tool">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="MyMECA — Pay Calculator for Nurses">
+  <meta property="og:description" content="Never guess your pay again. Fast, accurate calculations for NZNO nurses.">
+  <meta property="og:image" content="http://mymeca.shmake.nz/images/ogimage.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" href="assets/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
-
 </head>
-
 <body>
 
-  <!-- Hero Header -->
+  <!-- header: full viewport -->
   <header id="header">
-    <div class="content">
-      <h1 class="brand">
-        <a href="#"><img src="images/logo.png" alt="MyMECA logo"></a>
-      </h1>
-      <h2>NZNO Nurses - Never guess your pay again</h2>
-      <p>Fast, Easy, Accurate Calculations for Employees under the NZNO-HNZ MECA</p>
-		<ul class="actions">
-		  <li>
-			<a href="https://mymeca.glide.page" target="_blank" class="cta-btn enter-app">
-			  <img src="images/AppIconWhiteBG.png" alt="App icon">
-			  <span>Enter App</span>
-			</a>
-		  </li>
-		  <li>
-			<a href="https://www.buymeacoffee.com/shmake" target="_blank" class="cta-btn beer-btn">
-			  <img src="images/beer.png" alt="Beer icon">
-			  <span>Buy Me A Beer</span>
-			</a>
-		  </li>
-		</ul>
-    </div>
-    <div class="image phone">
-      <div class="image">
-        <img src="images/promo.png" alt="MyMECA preview">
+    <div class="container">
+      <div class="col-content">
+        <img class="brand" src="images/logo.png" alt="Brand" />
+        <h1>Nurses, Never Guess Again</h1>
+        <p>Fast, accurate calculations for NZNO Nurses</p>
+        <div class="actions">
+          <a class="btn-primary" href="https://mymeca.glide.page"><img src="images/AppIconWhiteBG.png" alt="App icon">
+			  <span>Enter App</span></a>
+          <a class="btn" href="#carousel">See Features</a>
+		  <a class="btn-beer" href="https://www.buymeacoffee.com/shmake" target="_blank"><img src="images/beer.png" alt="App icon">
+			  <span>Buy Me A Beer</span></a>
+        </div>
+      </div>
+      <div class="col visual">
+        <div class="phone">
+          <img src="images/promo.png" alt="App preview" />
+        </div>
       </div>
     </div>
-	<a href="#features" class="scroll-down" aria-label="Scroll down">
-  <svg viewBox="0 0 24 24" class="arrow-icon" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 16.5l-7-7 1.4-1.4L12 13.7l5.6-5.6L19 9.5z"/>
-  </svg>
-</a>
-
+    <a class="scroll-down" href="#features" aria-label="Scroll to features">⌄</a>
   </header>
 
-<div class="page-body">
+  <!-- page body -->
+  <main id="features" class="page-body">
 
   <!-- Features -->
-<section id="features" class="wrapper">
-  <div class="carousel" role="region" aria-label="Feature highlights">
-    <button class="nav prev" aria-label="Previous feature" type="button">‹</button>
-    <div class="track" tabindex="0">
+	<section class="wrapper">
+	  <div class="carousel" role="region" aria-label="Feature highlights">
+		<div class="track" tabindex="0">
 
-      <!-- Slide 1 -->
-      <article class="slide step1">
-        <div class="slide-inner">
-          <span class="step-badge" aria-hidden="true">1</span>
-          <div class="media">
-            <img src="images/settings.gif" alt="Settings screen">
-          </div>
-          <div class="copy">
-            <h3>Get set up once, relax forever</h3>
-            <div class="feature-cards">
-              <div class="card">
-                <h4>Your pay, your way</h4>
-                <p>Enter your payscale or pop in your exact rate straight from your payslip — no guessing.</p>
-              </div>
-              <div class="card">
-                <h4>Casual friendly</h4>
-                <p>Tick a box and 8% holiday pay is added automatically to your gross income.</p>
-              </div>
-              <div class="card">
-                <h4>Deductions sorted</h4>
-                <p>KiwiSaver, Student Loan, NZNO Levy, even secondary tax codes — all handled for you.</p>
-              </div>
-              <div class="card">
-                <h4>Declutter your shifts</h4>
-                <p>Hide shift types you never use so your dropdown stays clean and quick.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
+		  <!-- Slide 1 -->
+		  <article class="slide step1">
+			<div class="slide-inner">
+			  <span class="step-badge" aria-hidden="true">1</span>
+			  <div class="media">
+				<img src="images/settings.gif" alt="Settings screen">
+			  </div>
+			  <div class="copy">
+				<h3>Get set up once, relax forever</h3>
+				<div class="feature-cards">
+				  <div class="card">
+					<h4>Your pay, your way</h4>
+					<p>Enter your payscale or pop in your exact rate straight from your payslip — no guessing.</p>
+				  </div>
+				  <div class="card">
+					<h4>Casual friendly</h4>
+					<p>Tick a box and 8% holiday pay is added automatically to your gross income.</p>
+				  </div>
+				  <div class="card">
+					<h4>Deductions sorted</h4>
+					<p>KiwiSaver, Student Loan, NZNO Levy, even secondary tax codes — all handled for you.</p>
+				  </div>
+				  <div class="card">
+					<h4>Declutter your shifts</h4>
+					<p>Hide shift types you never use so your dropdown stays clean and quick.</p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </article>
 
-      <!-- Slide 2 -->
-      <article class="slide step2">
-        <div class="slide-inner">
-          <span class="step-badge" aria-hidden="true">2</span>
-          <div class="media">
-            <img src="images/shifts.png" alt="Shifts screen">
-          </div>
-          <div class="copy">
-            <h3>Make shifts make sense</h3>
-            <div class="feature-cards">
-              <div class="card">
-                <h4>Day matters</h4>
-                <p>Your shift is counted on the day it starts — so no confusion with nights rolling into tomorrow.</p>
-              </div>
-              <div class="card">
-                <h4>Pick your shift type</h4>
-                <p>Choose exactly the shift you’re working from your list (you can trim it down in Settings).</p>
-              </div>
-              <div class="card">
-                <h4>Holiday handling</h4>
-                <p>From Christmas Eve into Boxing Day — whether your shift starts, ends, or spans a public holiday, we’ve got it covered.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
+		  <!-- Slide 2 -->
+		  <article class="slide step2">
+			<div class="slide-inner">
+			  <span class="step-badge" aria-hidden="true">2</span>
+			  <div class="media">
+				<img src="images/shifts.png" alt="Shifts screen">
+			  </div>
+			  <div class="copy">
+				<h3>Make shifts make sense</h3>
+				<div class="feature-cards">
+				  <div class="card">
+					<h4>Day matters</h4>
+					<p>Your shift is counted on the day it starts — so no confusion with nights rolling into tomorrow.</p>
+				  </div>
+				  <div class="card">
+					<h4>Pick your shift type</h4>
+					<p>Choose exactly the shift you’re working from your list (you can trim it down in Settings).</p>
+				  </div>
+				  <div class="card">
+					<h4>Holiday handling</h4>
+					<p>From Christmas Eve into Boxing Day — whether your shift starts, ends, or spans a public holiday, we’ve got it covered.</p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </article>
 
-      <!-- Slide 3 -->
-      <article class="slide step3">
-        <div class="slide-inner">
-          <span class="step-badge" aria-hidden="true">3</span>
-          <div class="media">
-            <img src="images/pay.png" alt="Pay screen">
-          </div>
-          <div class="copy">
-            <h3>See the full picture</h3>
-            <div class="feature-cards">
-              <div class="card">
-                <h4>Instant gross income</h4>
-                <p>Nights, weekends, public holidays, and overtime — all calculated with the right multipliers, no maths required.</p>
-              </div>
-              <div class="card">
-                <h4>Deductions done</h4>
-                <p>PAYE (IRD 2025), KiwiSaver, Student Loan, NZNO Levy — everything applied automatically in the background.</p>
-              </div>
-              <div class="card">
-                <h4>Your real take-home</h4>
-                <p>See your net income in seconds so you can plan your budget with confidence.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
+		  <!-- Slide 3 -->
+		  <article class="slide step3">
+			<div class="slide-inner">
+			  <span class="step-badge" aria-hidden="true">3</span>
+			  <div class="media">
+				<img src="images/pay.png" alt="Pay screen">
+			  </div>
+			  <div class="copy">
+				<h3>See the full picture</h3>
+				<div class="feature-cards">
+				  <div class="card">
+					<h4>Instant gross income</h4>
+					<p>Nights, weekends, public holidays, and overtime — all calculated with the right multipliers, no maths required.</p>
+				  </div>
+				  <div class="card">
+					<h4>Deductions done</h4>
+					<p>PAYE (IRD 2025), KiwiSaver, Student Loan, NZNO Levy — everything applied automatically in the background.</p>
+				  </div>
+				  <div class="card">
+					<h4>Your real take-home</h4>
+					<p>See your net income in seconds so you can plan your budget with confidence.</p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </article>
 
+		</div>
+
+		<div class="dots" aria-hidden="true">
+		  <button data-slide="0" aria-label="Go to feature 1"></button>
+		  <button data-slide="1" aria-label="Go to feature 2"></button>
+		  <button data-slide="2" aria-label="Go to feature 3"></button>
+		</div>
+	  </div>
+	</section>
+
+
+	<section class="feature-comparison">
+	  <div class="table-wrapper">
+		<table aria-label="MyMECA Pay feature comparison">
+		  <thead>
+			<tr>
+			  <th>Feature</th>
+			  <th>Free</th>
+			  <th>Subscribed</th>
+			</tr>
+		  </thead>
+		  <tbody>
+
+			<!-- Payscales -->
+			<tr class="section"><td colspan="3">Payscales</td></tr>
+			<tr class="data-row"><td class="sub">Registered Nurse – Step 1–7</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Enrolled / Obstetric / Karitane / Assistant Nurse – Step 1–5</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Health Care Assistant – Step 1–5</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Mental Health Assistant – Step 1–5</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Senior Nurse Grade 1–6</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Custom Hourly Rate</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Casual Hourly Rate</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Multiple Rates (In-Charge Shifts) <span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
+
+			<!-- PDRP -->
+			<tr class="section"><td colspan="3">PDRP</td></tr>
+			<tr class="data-row"><td class="sub">RN – Proficient / Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">EN – Proficient / Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Mental Health Assistant – Merit 1 / Merit 2</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+
+			<!-- Breakdowns -->
+			<tr class="section"><td colspan="3">Breakdowns</td></tr>
+			<tr class="data-row"><td class="sub">PAYE</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">ACC</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">KiwiSaver Contribution</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Student Loan Payments</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">NZNO Levy</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Secondary Tax Codes</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Duty Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Hours Worked Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Hours Paid Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Estimated Annual Income</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Averaged Fortnight Pay<span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
+
+			<!-- Roster Length -->
+			<tr class="section"><td colspan="3">Roster Length</td></tr>
+			<tr class="data-row"><td class="sub">One Fortnight</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Two Fortnights <span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
+			<tr class="data-row"><td class="sub">Three Fortnights <span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
+			<tr class="data-row"><td class="sub">Shift Calendar <span class="badge badge-soon">In development</span></td><td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td></tr>
+
+			<!-- Shift Types -->
+			<tr class="section"><td colspan="3">Shift Types</td></tr>
+			<tr class="data-row"><td class="sub">Morning-4 (06:45 – 11:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Morning-4 (10:45 – 15:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Morning-8 (06:45 – 15:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Afternoon-4 (14:45 – 19:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Afternoon-4 (18:45 – 23:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Afternoon-8 (13:00 – 21:30)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Afternoon-8 (14:45 – 23:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Day-8 (08:00 – 16:30)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Day-10 (07:00 – 17:30)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Day-10 (10:30 – 21:00)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Day-12 (06:45 – 19:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Night-4 (22:45 – 03:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Night-4 (02:45 – 07:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Night-8 (22:45 – 07:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Night-10 (20:30 – 07:00)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Night-10 (21:00 – 07:30)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Night-12 (18:45 – 07:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Request Additional Shift Types</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+
+			<!-- Pay Types -->
+			<tr class="section"><td colspan="3">Pay Types</td></tr>
+			<tr class="data-row"><td class="sub">Normal</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Public Holiday Start</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Public Holiday End</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Public Holiday Both</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+			<tr class="data-row"><td class="sub">Shift Filter</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
+
+		  </tbody>
+		</table>
+	  </div>
+
+	  <p class="legend">✓ available &nbsp;&nbsp; – not included &nbsp;&nbsp; ⧗ in development</p>
+	</section>
+
+  </main>
+
+  <!-- footer -->
+  <footer id="footer">
+    <div class="container">
+		<h2>Working out your pay shouldn’t be confusing</h2>
+		<p>
+		  MyMECA is just me – a nurse’s husband who’s seen first-hand how tricky it can be to figure out what each shift really means for your pay and budget. It’s the result of countless late nights and many hours of learning as I went, starting with zero app development experience. 
+		  If you find it useful, please consider supporting me.
+		</p>
+      <p>© 2025 SHMAKE</p>
+	  <div class="social">
+		<a href="https://www.facebook.com/mymecapay/" target="_blank" rel="noopener noreferrer" aria-label="MyMECA on Facebook" class="fb-link">
+		  <svg viewBox="0 0 24 24" aria-hidden="true" class="fb-icon">
+			<path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.02H7.9v-2.92h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.92h-2.3V22c4.78-.75 8.44-4.92 8.44-9.94z"/>
+		  </svg>
+		</a>
+	  </div>
     </div>
-    <button class="nav next" aria-label="Next feature" type="button">›</button>
-
-    <div class="dots" aria-hidden="true">
-      <button data-slide="0" aria-label="Go to feature 1"></button>
-      <button data-slide="1" aria-label="Go to feature 2"></button>
-      <button data-slide="2" aria-label="Go to feature 3"></button>
-    </div>
-  </div>
-</section>
-
-<section id="features-table" class="features-table">
-<table aria-label="MyMECA Pay feature comparison">
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Free</th>
-      <th>Subscribed</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <!-- Payscales -->
-    <tr class="section"><td colspan="3">Payscales</td></tr>
-    <tr class="data-row"><td class="sub">Registered Nurse – Step 1–7</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Enrolled / Obstetric / Karitane / Assistant Nurse – Step 1–5</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Health Care Assistant – Step 1–5</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Mental Health Assistant – Step 1–5</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Senior Nurse Grade 1–6</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Custom Hourly Rate</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Casual Hourly Rate</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row">
-      <td class="sub">Multiple Rates (In-Charge Shifts) <span class="badge badge-soon">In development</span></td>
-      <td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td>
-    </tr>
-
-    <!-- PDRP -->
-    <tr class="section"><td colspan="3">PDRP</td></tr>
-    <tr class="data-row"><td class="sub">RN – Proficient</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">RN – Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">EN – Proficient</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">EN – Expert / Accomplished / Leadership</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Mental Health Assistant – Merit 1</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Mental Health Assistant – Merit 2</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-
-    <!-- Breakdowns -->
-    <tr class="section"><td colspan="3">Breakdowns</td></tr>
-    <tr class="data-row"><td class="sub">PAYE</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">ACC</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">KiwiSaver Contribution</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Student Loan Payments</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">NZNO Levy</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Secondary Tax Codes</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Duty Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Hours Worked Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Hours Paid Summary</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-
-    <!-- Roster Length -->
-    <tr class="section"><td colspan="3">Roster Length</td></tr>
-    <tr class="data-row"><td class="sub">One Fortnight</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row">
-      <td class="sub">Two Fortnights <span class="badge badge-soon">In development</span></td>
-      <td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td>
-    </tr>
-    <tr class="data-row">
-      <td class="sub">Three Fortnights <span class="badge badge-soon">In development</span></td>
-      <td class="tier-free soon">–</td><td class="tier-sub soon">⧗</td>
-    </tr>
-
-    <!-- Shift Types -->
-    <tr class="section"><td colspan="3">Shift Types</td></tr>
-    <tr class="data-row"><td class="sub">Morning-4 (06:45 – 11:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Morning-4 (10:45 – 15:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Morning-8 (06:45 – 15:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Afternoon-4 (14:45 – 19:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Afternoon-4 (18:45 – 23:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Afternoon-8 (13:00 – 21:30)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Afternoon-8 (14:45 – 23:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Day-8 (08:00 – 16:30)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Day-10 (07:00 – 17:30)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Day-10 (10:30 – 21:00)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Day-12 (06:45 – 19:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Night-4 (22:45 – 03:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Night-4 (02:45 – 07:15)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Night-8 (22:45 – 07:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Night-10 (20:30 – 07:00)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Night-10 (21:00 – 07:30)</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Night-12 (18:45 – 07:15)</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Request Additional Shift Types</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-
-    <!-- Pay Types -->
-    <tr class="section"><td colspan="3">Pay Types</td></tr>
-    <tr class="data-row"><td class="sub">Normal</td><td class="tier-free check">✓</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Public Holiday Start</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Public Holiday End</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Public Holiday Both</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-    <tr class="data-row"><td class="sub">Shift Filter</td><td class="tier-free cross">–</td><td class="tier-sub check">✓</td></tr>
-
-  </tbody>
-</table>
-
-<p class="legend">✓ available &nbsp;&nbsp; – not included &nbsp;&nbsp; ⧗ in development</p>
-
-</section>
-
-</div>
-
-<section id="support" class="support-footer">
-  <header>
-    <h2>Working out your pay shouldn’t be confusing</h2>
-    <p>
-      MyMECA is just me – a nurse’s husband who’s seen first-hand how tricky it can be to figure out what each shift really means for your pay and budget.<br>
-      It’s the result of countless late nights and many hours of learning as I went, starting with zero app development experience. 
-      If you find it useful, please consider supporting me.
-    </p>
-  </header>
-
-  <ul class="actions">
-		  <li>
-			<a href="https://www.buymeacoffee.com/shmake" target="_blank" class="cta-btn beer-btn">
-			  <img src="images/beer.png" alt="Beer icon">
-			  <span>Buy Me A Beer</span>
-			</a>
-		  </li>
-  </ul>
-  <div class="social">
-    <a href="https://www.facebook.com/mymecapay/" target="_blank" rel="noopener noreferrer" aria-label="MyMECA on Facebook" class="fb-link">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="fb-icon">
-        <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.02H7.9v-2.92h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.92h-2.3V22c4.78-.75 8.44-4.92 8.44-9.94z"/>
-      </svg>
-    </a>
-  </div>
-
-  <p>© SHMAKE 2025</p>
-</section>
+  </footer>
 
 <script>
-  (function(){
-    const carousel = document.querySelector('.carousel');
-    if(!carousel) return;
+(function(){
+  const carousel = document.querySelector('.carousel');
+  if(!carousel) return;
 
-    const track = carousel.querySelector('.track');
-    const slides = Array.from(carousel.querySelectorAll('.slide'));
-    const prev = carousel.querySelector('.prev');
-    const next = carousel.querySelector('.next');
-    const dots = Array.from(carousel.querySelectorAll('.dots button'));
+  const track  = carousel.querySelector('.track');
+  const slides = Array.from(carousel.querySelectorAll('.slide'));
+  const dots   = Array.from(carousel.querySelectorAll('.dots button'));
+  if(!track || !slides.length || !dots.length) return;
 
-    // Helper to get current slide index
-    function currentIndex(){
-      const scrollLeft = track.scrollLeft;
-      const width = track.clientWidth;
-      return Math.round(scrollLeft / width);
-    }
+  // Go to slide i
+  function goTo(i){
+    const width = track.clientWidth;
+    const idx = Math.max(0, Math.min(i, slides.length - 1));
+    track.scrollTo({ left: idx * width, behavior: 'smooth' });
+    updateDots(idx);
+  }
 
-    function goTo(i){
-      const width = track.clientWidth;
-      const clamped = Math.max(0, Math.min(i, slides.length - 1));
-      track.scrollTo({ left: clamped * width, behavior: 'smooth' });
-      updateDots(clamped);
-    }
+  // Which slide is most in view?
+  function currentIndex(){
+    const width = track.clientWidth || 1;
+    return Math.round(track.scrollLeft / width);
+  }
 
-    function updateDots(i){
-      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-    }
+  function updateDots(i){
+    dots.forEach((d, n) => d.classList.toggle('active', n === i));
+  }
 
-    // Buttons
-    prev.addEventListener('click', () => goTo(currentIndex() - 1));
-    next.addEventListener('click', () => goTo(currentIndex() + 1));
+  // Wire dots
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
 
-    // Dots
-    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-
-    // Keep dots in sync on manual swipe/resize
-    track.addEventListener('scroll', () => {
-      // throttle via rAF
-      if (track._ticking) return;
-      track._ticking = true;
-      requestAnimationFrame(() => {
-        updateDots(currentIndex());
-        track._ticking = false;
-      });
+  // Keep dots in sync on swipe/resize
+  let ticking = false;
+  track.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateDots(currentIndex());
+      ticking = false;
     });
-    window.addEventListener('resize', () => updateDots(currentIndex()));
+  });
+  window.addEventListener('resize', () => updateDots(currentIndex()));
 
-    // Init
-    updateDots(0);
-  })();
+  // Init
+  updateDots(0);
+})();
 </script>
-
 </body>
 </html>
