@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Version History - myMECA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .prose ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+    .prose ul li {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+  <div class="max-w-2xl mx-auto bg-white rounded-lg shadow p-6 mt-6 mb-12">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold mb-2" style="color: #24acdd;">
+        Version History
+      </h1>
+      <p class="text-sm text-gray-600">
+        Current Version: 2.0.0
+      </p>
+    </div>
+
+    <div class="prose prose-sm max-w-none space-y-6 text-gray-700">
+      
+      <!-- Version 2.0.0 -->
+      <section>
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold" style="color: #24acdd;">v2.0.0</span>
+          <span class="text-xs text-gray-500 ml-2">November 2025</span>
+        </div>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Complete rebuild as a modern web application</li>
+          <li>New pay calculator with fortnight-based calculations</li>
+          <li>User accounts with secure authentication</li>
+          <li>Comprehensive settings for pay scales and deductions</li>
+          <li>Improved UI/UX design</li>
+          <li>Real-time pay calculations</li>
+        </ul>
+      </section>
+
+      <!-- Version 1.21 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v1.21</span>
+          <span class="text-xs text-gray-500 ml-2">14 October 2025</span>
+        </div>
+        <p class="text-sm mb-2">Minor update to temporarily add a specific 03:00-15:30 shift.</p>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Week days: First 4 hours @ T1.25, followed by 4 hours @ T1, followed by 3 hours OT1, followed by 1 hour OT2</li>
+          <li>Weekend: First 8 hours @ T1.5, followed by 4 hours at OT2</li>
+          <li>BASIC VIEW ONLY</li>
+        </ul>
+      </section>
+
+      <!-- Version 1.2 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v1.2</span>
+          <span class="text-xs text-gray-500 ml-2">5 October 2025</span>
+        </div>
+        <p class="text-sm mb-2">Minor update for small fixes</p>
+        <p class="text-sm font-medium text-gray-900 mb-1">🔨 Fixes</p>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Fixed overtime shift calculation for weekends - now recognises T2 from midnight Friday to midnight Sunday</li>
+          <li>Backend tweaks to isolate Basic and Roster view payslips</li>
+        </ul>
+      </section>
+
+      <!-- Version 1.1 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v1.1</span>
+          <span class="text-xs text-gray-500 ml-2">4 October 2025</span>
+        </div>
+        <p class="text-sm mb-2">Major update including shift coordinator, overtime shifts, and on-call shifts.</p>
+        
+        <p class="text-sm font-medium text-gray-900 mb-1">✨ Features</p>
+        <ul class="list-disc ml-6 space-y-1 mb-3">
+          <li>7-day trial – try all premium features (no card required)</li>
+          <li>Shift Coordinator for RN roles under the MECA</li>
+          <li>Overtime calculations with meal break options</li>
+          <li>Enhanced fortnight overtime calc for &gt;80 hours</li>
+          <li>On-Call integration (full shifts supported)</li>
+        </ul>
+      </section>
+
+      <!-- Version 1.0 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v1.0</span>
+          <span class="text-xs text-gray-500 ml-2">18 September 2025</span>
+        </div>
+        <p class="text-sm mb-2">Major update — domain changed to app.mymeca.nz</p>
+        
+        <p class="text-sm font-medium text-gray-900 mb-1">✨ Features</p>
+        <ul class="list-disc ml-6 space-y-1 mb-3">
+          <li>User login for settings persistence</li>
+          <li>Shifts by date with fortnight pay view</li>
+          <li>Pay calculations for up to 6 fortnights</li>
+          <li>Calendar view</li>
+          <li>Toggle for Roster vs Basic view</li>
+        </ul>
+        
+        <p class="text-sm font-medium text-gray-900 mb-1">🔨 Fixes</p>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>UI tweaks for smoother experience</li>
+          <li>Fixed 24h mode override issue</li>
+          <li>Corrected NZNO levy rates</li>
+          <li>Fixed Sunday shift fortnight boundary issue</li>
+        </ul>
+      </section>
+
+      <!-- Version 0.9 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v0.9</span>
+          <span class="text-xs text-gray-500 ml-2">24 August 2025</span>
+        </div>
+        <p class="text-sm font-medium text-gray-900 mb-1">✨ Features</p>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Settings split into Earnings, Deductions, and Shifts categories</li>
+          <li>Added 12 new shift types (420 different calculation variables)</li>
+          <li>Updated help section and added FAQ</li>
+        </ul>
+      </section>
+
+      <!-- Version 0.8 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v0.8</span>
+          <span class="text-xs text-gray-500 ml-2">23 August 2025</span>
+        </div>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Payscales for Senior Designated Nurse &amp; Nurse Practitioner</li>
+          <li>PDRP selections for Mental Health Assistants</li>
+        </ul>
+      </section>
+
+      <!-- Version 0.7 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v0.7</span>
+          <span class="text-xs text-gray-500 ml-2">22 August 2025</span>
+        </div>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Overtime functioning (fortnight &gt;80hrs)</li>
+          <li>PDRP selections for RNs and ENs</li>
+          <li>Secondary tax option</li>
+        </ul>
+      </section>
+
+      <!-- Version 0.6 -->
+      <section class="border-t pt-4">
+        <div class="flex items-baseline mb-2">
+          <span class="text-sm font-semibold text-gray-600">v0.6</span>
+          <span class="text-xs text-gray-500 ml-2">19 August 2025</span>
+        </div>
+        <p class="text-sm">✨ Initial public release</p>
+      </section>
+
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-gray-200">
+      <p class="text-sm text-gray-600 mb-4">
+        Based on NZNO-HNZ MECA 2023-2024 collective agreement
+      </p>
+      <a 
+        href="/"
+        class="inline-block px-6 py-2 rounded-lg font-medium text-white hover:opacity-90 transition"
+        style="background-color: #24acdd;"
+      >
+        Back to myMECA
+      </a>
+    </div>
+  </div>
+</body>
+</html>
