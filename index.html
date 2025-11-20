@@ -3,544 +3,805 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MyMECA — Pay Calculator for Nurses</title>
-  <meta name="description" content="A simple pay calculator for nurses. Fast, easy, accurate.">
+  <title>myMECA — Pay Calculator for NZ Healthcare Workers</title>
+  <meta name="description" content="A simple pay calculator for New Zealand healthcare workers. Fast, easy, accurate MECA pay calculations.">
   <meta name="author" content="SHMAKE">
-  <meta name="keywords" content="nurses, pay calculator, NZNO, MyMECA, salary tool">
+  <meta name="keywords" content="nurses, pay calculator, NZNO, myMECA, MECA, healthcare, New Zealand">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="MyMECA — Pay Calculator for Nurses">
-  <meta property="og:description" content="Never guess your pay again. Fast, accurate calculations for NZNO nurses.">
-  <meta property="og:image" content="http://mymeca.shmake.nz/images/ogimage.jpg">
+  <meta property="og:title" content="myMECA — Pay Calculator for NZ Healthcare Workers">
+  <meta property="og:description" content="Never guess your pay again. Fast, accurate calculations for NZNO healthcare workers.">
+  <meta property="og:image" content="https://mymeca.nz/images/ogimage.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="favicon.ico">
-  <link rel="stylesheet" href="assets/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #1e293b;
+    }
+    
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      position: relative;
+      background: #24acdd;
+    }
+    
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .scroll-down {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      animation: bounce 2s infinite;
+      text-decoration: none;
+    }
+    
+    .scroll-down:hover {
+      color: white;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-8px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-4px);
+      }
+    }
+    
+    .logo {
+      width: 200px;
+      margin-bottom: 1.5rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .tagline {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+	  min-width: 200px;
+      gap: 0.75rem;
+      background: white;
+      color: #24acdd;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-button:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-button img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    
+    .feature {
+      padding: 1rem 0.5rem;
+    }
+    
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature h3 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    
+    .support-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .support-link:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: #334155;
+    }
+    
+    .support-link img {
+      width: 20px;
+      height: 20px;
+    }
+    
+/* Hero Phone with centered button */
+    .hero-phone-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+    
+    .hero-phone-img {
+      max-height: 500px;
+      width: auto;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+      opacity: 0.4;
+    }
+    
+    .hero-phone-wrapper .cta-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-phone-img {
+        max-height: 350px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-phone-img {
+        max-height: 300px;
+      }
+    }
+    
+    /* Comparison Table */
+    .comparison {
+      background: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+    
+    .comparison h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+    }
+    
+    .comparison-table {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+    
+    .table-header {
+      display: grid;
+      grid-template-columns: 1fr 50px 50px;
+      gap: 0.5rem;
+      padding: 0.75rem 0;
+      border-bottom: 2px solid #e2e8f0;
+      font-weight: 600;
+      color: #24acdd;
+      text-align: center;
+    }
+    
+    .table-header div:first-child {
+      text-align: left;
+    }
+    
+    .table-section {
+      padding: 0.75rem 0 0.5rem;
+      font-weight: 600;
+      color: #24acdd;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .table-row {
+      display: grid;
+      grid-template-columns: 1fr 50px 50px;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      align-items: center;
+    }
+    
+    .table-row div:first-child {
+      color: #334155;
+    }
+    
+    .table-row .check,
+    .table-row .cross {
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .table-row .check {
+      color: #22c55e;
+    }
+    
+    .table-row .cross {
+      color: #cbd5e1;
+    }
+    
+    .comparison-note {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* About Section */
+    .about-section {
+      background: #24acdd;
+      padding: 3rem 1rem;
+    }
+    
+    .about-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .about-section h2 {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .about-section p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .support-link-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      text-decoration: none;
+      font-size: 0.875rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+    }
+    
+    .support-link-white:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    
+    .support-link-white img {
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* Features Section */
+    .features-section {
+      background: #f8fafc;
+      padding: 3rem 1rem;
+    }
+    
+    .features-section h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 2rem;
+    }
+    
+    .feature-steps {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .step {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem 1.5rem;
+      position: relative;
+    }
+    
+    .step-number {
+      grid-row: 1 / 3;
+      background: #24acdd;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .step-image {
+      grid-column: 2;
+    }
+    
+    .step-image img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-banner {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      color: #64748b;
+      border: 2px dashed #cbd5e1;
+      background: #f1f5f9;
+    }
+    
+    .step-content {
+      grid-column: 2;
+    }
+    
+    .step-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #24ACDD;
+      margin-bottom: 0.75rem;
+    }
+    
+    .step-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .step-content li {
+      font-size: 0.875rem;
+      color: #64748b;
+      padding: 0.375rem 0;
+      line-height: 1.4;
+    }
+    
+    .step-content li strong {
+      color: #334155;
+    }
+    
+    footer {
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.8125rem;
+      transition: color 0.2s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #24acdd;
+    }
+    
+    .copyright {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+    
+	.powered-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    .powered-by a {
+      transition: opacity 0.2s ease;
+    }
+    
+    .powered-by a:hover {
+      opacity: 0.7;
+    }
+	
+    @media (max-width: 768px) {
+      .hero-phone img {
+        max-height: 400px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
+      .hero-phone img {
+        max-height: 350px;
+      }
+      
+      .comparison {
+        padding: 2rem 0;
+      }
+      
+      .comparison h2 {
+        padding: 0 1rem;
+      }
+      
+      .comparison-table {
+        font-size: 0.8125rem;
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+      
+      .table-header,
+      .table-row {
+        grid-template-columns: 1fr 40px 40px;
+      }
+      
+      .comparison-note,
+      .comparison .support-link {
+        padding: 0 1rem;
+      }
+      
+      .features-section {
+        padding: 2rem 1rem;
+      }
+      
+      .step {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        text-align: center;
+      }
+      
+      .step-number {
+        grid-row: auto;
+        margin: 0 auto 0.5rem;
+      }
+      
+      .step-image {
+        grid-column: 1;
+      }
+      
+      .step-banner {
+        height: 150px;
+      }
+      
+      .step-content {
+        grid-column: 1;
+        text-align: left;
+      }
+      
+      .step-content h3 {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- header: full viewport -->
-  <header id="header">
+  <main>
     <div class="container">
-      <div class="col-content">
-        <img class="brand" src="images/logo.png" alt="Brand" />
-        <h1>Nurses, Never Guess Again</h1>
-        <p>Fast, accurate calculations for NZNO Nurses</p>
-        <div class="actions">
-          <a class="btn-primary" href="https://app.mymeca.nz">
-            <img src="images/AppIconWhiteBG.png" alt="App icon">
+      <div class="hero-text">
+        <img class="logo" src="images/logo.png" alt="myMECA" />
+        
+        <h1>Never Guess Your Pay Again</h1>
+        <p class="tagline">Fast, accurate calculations for NZ healthcare workers</p>
+        
+        <!-- Phone with centered button -->
+        <div class="hero-phone-wrapper">
+          <img class="hero-phone-img" src="images/hero.png" alt="myMECA pay calculator showing take home pay">
+          <a class="cta-button" href="https://app.mymeca.nz">
+            <img src="images/iconblue.png" alt="">
             <span>Enter App</span>
           </a>
-          <a class="btn" href="#features">See Features</a>
-          <a class="btn-beer" href="https://www.buymeacoffee.com/shmake" target="_blank">
-            <img src="images/beer.png" alt="Beer icon">
-            <span>Buy Me A Beer</span>
-          </a>
         </div>
       </div>
-      <div class="col visual">
-        <div class="phone">
-          <img src="images/promo.png" alt="App preview" />
-        </div>
-      </div>
+      <br><br>
+      <!-- Scroll indicator -->
+      <a href="#features" class="scroll-down" aria-label="Scroll to features">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        </svg>
+      </a>
     </div>
-    <a class="scroll-down" href="#features" aria-label="Scroll to features">⌄</a>
-  </header>
-
-  <!-- page body -->
-  <main id="features" class="page-body">
-
-    <!-- Features Carousel -->
-    <section class="wrapper">
-      <div class="carousel" role="region" aria-label="Feature highlights">
-        <div class="track" tabindex="0">
-
-          <!-- Slide 1 -->
-          <article class="slide step1">
-            <div class="slide-inner">
-              <span class="step-badge" aria-hidden="true">1</span>
-              <div class="media">
-                <img src="images/settings.gif" alt="Settings screen">
-              </div>
-              <div class="copy">
-                <h3>Get set up once, relax forever</h3>
-                <div class="feature-cards">
-                  <div class="card">
-                    <h4>Your pay, your way</h4>
-                    <p>Enter your payscale or pop in your exact rate straight from your payslip — no guessing.</p>
-                  </div>
-                  <div class="card">
-                    <h4>Casual friendly</h4>
-                    <p>Tick a box and 8% holiday pay is added automatically to your gross income.</p>
-                  </div>
-                  <div class="card">
-                    <h4>Deductions sorted</h4>
-                    <p>KiwiSaver, Student Loan, NZNO Levy, even secondary tax codes — all handled for you.</p>
-                  </div>
-                  <div class="card">
-                    <h4>Declutter your shifts</h4>
-                    <p>Hide shift types you never use so your dropdown stays clean and quick.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Slide 2 -->
-          <article class="slide step2">
-            <div class="slide-inner">
-              <span class="step-badge" aria-hidden="true">2</span>
-              <div class="media">
-                <img src="images/shifts.png" alt="Shifts screen">
-              </div>
-              <div class="copy">
-                <h3>Make shifts make sense</h3>
-                <div class="feature-cards">
-                  <div class="card">
-                    <h4>Day matters</h4>
-                    <p>Your shift is counted on the day it starts — so no confusion with nights rolling into tomorrow.</p>
-                  </div>
-                  <div class="card">
-                    <h4>Pick your shift type</h4>
-                    <p>Choose exactly the shift you're working from your list (you can trim it down in Settings).</p>
-                  </div>
-                  <div class="card">
-                    <h4>Holiday handling</h4>
-                    <p>From Christmas Eve into Boxing Day — whether your shift starts, ends, or spans a public holiday, we've got it covered.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Slide 3 -->
-          <article class="slide step3">
-            <div class="slide-inner">
-              <span class="step-badge" aria-hidden="true">3</span>
-              <div class="media">
-                <img src="images/pay.png" alt="Pay screen">
-              </div>
-              <div class="copy">
-                <h3>See the full picture</h3>
-                <div class="feature-cards">
-                  <div class="card">
-                    <h4>Instant gross income</h4>
-                    <p>Nights, weekends, public holidays, and overtime — all calculated with the right multipliers, no maths required.</p>
-                  </div>
-                  <div class="card">
-                    <h4>Deductions done</h4>
-                    <p>PAYE (IRD 2025), KiwiSaver, Student Loan, NZNO Levy — everything applied automatically in the background.</p>
-                  </div>
-                  <div class="card">
-                    <h4>Your real take-home</h4>
-                    <p>See your net income in seconds so you can plan your budget with confidence.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="dots" aria-hidden="true">
-          <button data-slide="0" aria-label="Go to feature 1"></button>
-          <button data-slide="1" aria-label="Go to feature 2"></button>
-          <button data-slide="2" aria-label="Go to feature 3"></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Feature Comparison -->
-    <section class="feature-comparison">
-      <h2>Feature Comparison</h2>
-      
-      <!-- Header -->
-      <div class="features-header">
-        <div>Feature</div>
-        <div>Free</div>
-        <div>Paid</div>
-      </div>
-
-      <!-- Content -->
-      <div class="features-content">
-        
-        <!-- Payscales Section -->
-        <div class="feature-section">Payscales</div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Registered Nurse — Step 1—7</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Enrolled / Obstetric / Karitane / Assistant Nurse — Step 1—5</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Health Care Assistant — Step 1—5</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Mental Health Assistant — Step 1—5</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Senior Nurse Grade 1—6</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Custom Hourly Rate</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Casual Hourly Rate</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Multiple Rates (In-Charge Shifts) <span class="badge badge-soon">In development</span></div>
-          <div class="feature-status soon" data-tier="Free">—</div>
-          <div class="feature-status soon" data-tier="Paid">⧗</div>
-        </div>
-
-        <!-- PDRP Section -->
-        <div class="feature-section">PDRP</div>
-        
-        <div class="feature-row">
-          <div class="feature-name">RN — Proficient / Expert / Accomplished / Leadership</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">EN — Proficient / Expert / Accomplished / Leadership</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Mental Health Assistant — Merit 1 / Merit 2</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-
-        <!-- Breakdowns Section -->
-        <div class="feature-section">Breakdowns</div>
-        
-        <div class="feature-row">
-          <div class="feature-name">PAYE</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">ACC</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">KiwiSaver Contribution</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Student Loan Payments</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">NZNO Levy</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Secondary Tax Codes</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Duty Summary</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Hours Worked Summary</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Hours Paid Summary</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Estimated Annual Income</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Averaged Fortnight Pay<span class="badge badge-soon">In development</span></div>
-          <div class="feature-status soon" data-tier="Free">—</div>
-          <div class="feature-status soon" data-tier="Paid">⧗</div>
-        </div>
-
-        <!-- Roster Length Section -->
-        <div class="feature-section">Roster Length</div>
-        
-        <div class="feature-row">
-          <div class="feature-name">One Fortnight</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Six Fortnights (up to two 6 week rosters)</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Shift Calendar</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-
-        <!-- Shift Types Section -->
-        <div class="feature-section">Shift Types</div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Morning-4 (06:45 — 11:15)</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Morning-4 (10:45 — 15:15)</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Morning-8 (06:45 — 15:15)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Afternoon-4 (14:45 — 19:15)</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Afternoon-4 (18:45 — 23:15)</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Afternoon-8 (13:00 — 21:30)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Afternoon-8 (14:45 — 23:15)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Day-8 (08:00 — 16:30)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Day-10 (07:00 — 17:30)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Day-10 (10:30 — 21:00)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Day-12 (06:45 — 19:15)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Night-4 (22:45 — 03:15)</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Night-4 (02:45 — 07:15)</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Night-8 (22:45 — 07:15)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Night-10 (20:30 — 07:00)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Night-10 (21:00 — 07:30)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Night-12 (18:45 — 07:15)</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Request Additional Shift Types</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-
-        <!-- Pay Types Section -->
-        <div class="feature-section">Pay Types</div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Normal</div>
-          <div class="feature-status check" data-tier="Free">✓</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Public Holiday Start</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Public Holiday End</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Public Holiday Both</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-        
-        <div class="feature-row">
-          <div class="feature-name">Shift Filter</div>
-          <div class="feature-status cross" data-tier="Free">—</div>
-          <div class="feature-status check" data-tier="Paid">✓</div>
-        </div>
-
-      </div>
-
-      <p class="legend">✓ available &nbsp;&nbsp; — not included &nbsp;&nbsp; ⧗ in development</p>
-    </section>
-
   </main>
 
-  <!-- footer -->
-  <footer id="footer">
-    <div class="container">
-      <h2>Working out your pay shouldn't be confusing</h2>
-      <p>
-        MyMECA is just me — a nurse's husband who's seen first-hand how tricky it can be to figure out what each shift really means for your pay and budget. It's the result of countless late nights and many hours of learning as I went, starting with zero app development experience. 
-        If you find it useful, please consider supporting me.
-      </p>
-      <p>© 2025 SHMAKE</p>
-      <div class="social">
-        <a href="https://www.facebook.com/mymecapay/" target="_blank" rel="noopener noreferrer" aria-label="MyMECA on Facebook" class="fb-link">
-          <svg viewBox="0 0 24 24" aria-hidden="true" class="fb-icon">
-            <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.02H7.9v-2.92h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.92h-2.3V22c4.78-.75 8.44-4.92 8.44-9.94z"/>
-          </svg>
-        </a>
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <h2>How it works</h2>
+    
+    <div class="feature-steps">
+      <!-- Step 1 -->
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-image">
+          <img src="images/banner1_settings.png">
+        </div>
+        <div class="step-content">
+          <h3>Personalised to you</h3>
+          <ul>
+            <li><strong>Your pay, your way</strong> — Use your payscale or enter your exact rate from your payslip</li>
+            <li><strong>Casual friendly</strong> — 8% holiday pay added automatically</li>
+            <li><strong>Deductions sorted</strong> — KiwiSaver, Student Loan, NZNO Levy, secondary tax</li>
+            <li><strong>Custom shifts</strong> — Create your own shifts and hide the ones you don't need</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-image">
+          <img src="images/banner2_calendar.png">
+        </div>
+        <div class="step-content">
+          <h3>More than a calculator</h3>
+          <ul>
+            <li><strong>Real dates</strong> — Load shifts against your actual roster</li>
+            <li><strong>Flexible shifts</strong> — Choose from presets or use your own</li>
+            <li><strong>Holidays covered</strong> — Public holidays and leave handled automatically</li>
+            <li><strong>Always with you</strong> — Your full roster in your pocket</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-image">
+          <img src="images/banner3_pay.png">
+        </div>
+        <div class="step-content">
+          <h3>See the full picture</h3>
+          <ul>
+            <li><strong>Instant gross</strong> — Days, nights, weekends, on-call, overtime — all calculated for you</li>
+            <li><strong>Deductions done</strong> — PAYE 2025, KiwiSaver, Student Loan applied automatically</li>
+            <li><strong>Real take-home</strong> — Know exactly what hits your account</li>
+          </ul>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Feature Comparison -->
+  <section id="comparison" class="comparison">
+    <h2>Free vs Premium</h2>
+    
+    <div class="comparison-table">
+      <div class="table-header">
+        <div>Feature</div>
+        <div>Free</div>
+        <div>Premium</div>
+      </div>
+      
+      <div class="table-section">Calculations</div>
+      
+      <div class="table-row">
+        <div>Basic pay calculations</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>All pay scales</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Tax &amp; deductions (PAYE, KiwiSaver, Student Loan)</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Public holidays</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Leave - Annual, Sick etc</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Daily overtime calculations</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Fortightly overtime calculations</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>	  
+      <div class="table-row">
+        <div>On-call shifts</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Shift coordinator allowance</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>
+      
+      <div class="table-section">Features</div>
+      
+      <div class="table-row">
+        <div>Unlimited shifts</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Calendar roster view</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Fortnight pay summaries</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Custom hourly rate</div>
+        <div class="check">✓</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Custom shifts</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Shift notes</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>	  
+	
+	<div class="table-section">Support</div>
+      
+      <div class="table-row">
+        <div>Immediate access to new features</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>	
+      <div class="table-row">
+        <div>Priority support</div>
+        <div class="cross">—</div>
+        <div class="check">✓</div>
+      </div>	
+    </div>	  
+    
+    <p class="comparison-note">7-day free trial · $3.99 NZD/month</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-content">
+      <h2>Working out your pay shouldn't be confusing</h2>
+      <p>
+        myMECA is just me — a nurse's husband who's seen first-hand how tricky it can be to figure out what each shift really means for your pay and budget. It's the result of countless late nights and many hours of learning as I went, starting with zero app development experience. If you find it useful, please consider supporting me.
+      </p>
+      <a class="support-link-white" href="https://www.buymeacoffee.com/shmake" target="_blank" rel="noopener">
+        <img src="images/beer.png" alt="">
+        <span>Buy me a beer</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="powered-by">
+      <span style="color: #94a3b8; font-size: 0.75rem; margin-right: 0.5rem;">Powered by</span>
+      <a href="https://supabase.com" target="_blank" rel="noopener" style="margin-right: 1rem;">
+        <img src="images/supabase-logo-icon.png" alt="Supabase" style="height: 20px; vertical-align: middle;">
+      </a>
+      <a href="https://react.dev" target="_blank" rel="noopener" style="margin-right: 1rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" style="height: 20px; vertical-align: middle;">
+      </a>
+      <a href="https://stripe.com" target="_blank" rel="noopener">
+        <img src="https://images.ctfassets.net/fzn2n1nzq965/HTTOloNPhisV9P4hlMPNA/cacf1bb88b9fc492dfad34378d844280/Stripe_icon_-_square.svg" alt="Stripe" style="height: 20px; vertical-align: middle;">
+      </a>
+    </div>
+    
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="versions.html">Versions</a>
+      <a href="https://www.facebook.com/mymecapay/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.02H7.9v-2.92h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.92h-2.3V22c4.78-.75 8.44-4.92 8.44-9.94z"/>
+        </svg>
+      </a>
+    </div>
+    <p class="copyright">© 2025 myMECA · Made in Aotearoa</p>
   </footer>
 
-  <script>
-    (function(){
-      const carousel = document.querySelector('.carousel');
-      if(!carousel) return;
-
-      const track  = carousel.querySelector('.track');
-      const slides = Array.from(carousel.querySelectorAll('.slide'));
-      const dots   = Array.from(carousel.querySelectorAll('.dots button'));
-      if(!track || !slides.length || !dots.length) return;
-
-      // Go to slide i
-      function goTo(i){
-        const width = track.clientWidth;
-        const idx = Math.max(0, Math.min(i, slides.length - 1));
-        track.scrollTo({ left: idx * width, behavior: 'smooth' });
-        updateDots(idx);
-      }
-
-      // Which slide is most in view?
-      function currentIndex(){
-        const width = track.clientWidth || 1;
-        return Math.round(track.scrollLeft / width);
-      }
-
-      function updateDots(i){
-        dots.forEach((d, n) => d.classList.toggle('active', n === i));
-      }
-
-      // Wire dots
-      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-
-      // Keep dots in sync on swipe/resize
-      let ticking = false;
-      track.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          updateDots(currentIndex());
-          ticking = false;
-        });
-      });
-      window.addEventListener('resize', () => updateDots(currentIndex()));
-
-      // Init
-      updateDots(0);
-    })();
-  </script>
 </body>
 </html>
