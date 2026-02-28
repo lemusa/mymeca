@@ -11,12 +11,12 @@
 	</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>myMECA — Pay Dashboard for NZ Healthcare Workers</title>
+  <title>myMECA — Pay Calculator for NZ Healthcare Workers</title>
   <meta name="description" content="Pay calculator, roster planner, and shift dashboard for New Zealand nurses and healthcare workers. NZNO-HNZ and PHC MECA support. Works on phone, tablet, and desktop.">
   <meta name="author" content="SHMAKE">
   <meta name="keywords" content="nurses, pay calculator, NZNO, PHC, myMECA, MECA, healthcare, New Zealand, roster, shift planner">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="myMECA — Pay Dashboard for NZ Healthcare Workers">
+  <meta property="og:title" content="myMECA — Pay Calculator for NZ Healthcare Workers">
   <meta property="og:description" content="Your pay. Your roster. Your dashboard. MECA pay calculations, shift planning, and more — built for NZ nurses and healthcare workers.">
   <meta property="og:image" content="https://mymeca.nz/images/ogimage.jpg">
   <meta property="og:type" content="website">
@@ -179,135 +179,477 @@
       height: 20px;
     }
     
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .cta-steps {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cta-step {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .cta-step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      color: #24acdd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .cta-step-arrow {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin: 0 0.125rem;
+    }
+
+    @media (max-width: 768px) {
+      .cta-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .cta-steps {
+        gap: 0.375rem;
+      }
+
+      .cta-step {
+        font-size: 0.75rem;
+      }
+
+      .cta-step-num {
+        width: 20px;
+        height: 20px;
+        font-size: 0.625rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .cta-step {
+        font-size: 0.6875rem;
+      }
+    }
+
+    .cta-button-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .cta-button-sub {
+      font-size: 0.625rem;
+      font-weight: 400;
+      color: #94a3b8;
+      margin-top: 0.125rem;
+    }
+
     .platform-line {
       color: rgba(255, 255, 255, 0.8);
-      font-size: 0.875rem;
-      margin-top: 1.25rem;
+      font-size: 0.8125rem;
       letter-spacing: 0.02em;
     }
 
     .android-badge {
-      display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.375rem 1rem;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem 0.4rem 0.625rem;
+      background: #334155;
+      border: 1px solid #475569;
+      border-radius: 8px;
       color: white;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+      font-size: 0.6875rem;
+      text-decoration: none;
+      transition: background 0.2s ease;
     }
 
-/* Hero Phone with centered button */
-    .hero-phone-wrapper {
+    .android-badge:hover {
+      background: #3d4f65;
+    }
+
+    .android-badge-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .android-badge-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .android-badge-sub {
+      font-size: 0.5rem;
+      color: #94a3b8;
+      letter-spacing: 0.03em;
+    }
+
+    .android-badge-main {
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+
+    /* Device Showcase */
+    .device-showcase {
       position: relative;
-      display: inline-block;
-      margin-top: 2rem;
+      max-width: 700px;
+      margin: 2.5rem auto 0;
     }
-    
-    .hero-phone-img {
-      max-height: 500px;
-      width: auto;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
-      opacity: 0.4;
+
+    .browser-frame {
+      background: #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     }
-    
-    .hero-phone-wrapper .cta-button {
+
+    .browser-tab-bar {
+      display: flex;
+      align-items: flex-end;
+      padding: 8px 12px 0;
+      background: #cbd5e1;
+    }
+
+    .browser-tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #e2e8f0;
+      padding: 6px 14px;
+      border-radius: 8px 8px 0 0;
+      font-size: 0.6875rem;
+      color: #334155;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .browser-tab-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+
+    .browser-url-bar {
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      background: #e2e8f0;
+    }
+
+    .browser-url {
+      flex: 1;
+      background: white;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 0.6875rem;
+      color: #64748b;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .browser-url-lock {
+      width: 10px;
+      height: 10px;
+      color: #22c55e;
+      flex-shrink: 0;
+    }
+
+    .browser-content img {
+      width: 100%;
+      display: block;
+    }
+
+    .phone-frame {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      right: -30px;
+      bottom: -20px;
+      width: 160px;
+      background: #334155;
+      border-radius: 20px;
+      padding: 6px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
     }
-    
+
+    .phone-frame img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+    }
+
     @media (max-width: 768px) {
-      .hero-phone-img {
-        max-height: 350px;
+      .device-showcase {
+        max-width: 500px;
+      }
+
+      .phone-frame {
+        width: 120px;
+        right: -16px;
+        bottom: -14px;
       }
     }
-    
+
     @media (max-width: 480px) {
-      .hero-phone-img {
-        max-height: 300px;
+      .device-showcase {
+        max-width: 100%;
+      }
+
+      .phone-frame {
+        width: 100px;
+        right: -10px;
+        bottom: -10px;
+        border-radius: 14px;
+        padding: 4px;
+      }
+
+      .phone-frame img {
+        border-radius: 10px;
+      }
+
+      .browser-frame {
+        border-radius: 8px;
+      }
+
+      .browser-tab-bar {
+        padding: 6px 8px 0;
+      }
+
+      .browser-tab {
+        font-size: 0.625rem;
+        padding: 5px 10px;
+        gap: 4px;
+      }
+
+      .browser-tab-icon {
+        width: 12px;
+        height: 12px;
+      }
+
+      .browser-url-bar {
+        padding: 4px 8px;
+      }
+
+      .browser-url {
+        padding: 4px 8px;
+        font-size: 0.625rem;
       }
     }
     
-    /* Comparison Table */
+    /* Pricing Cards */
     .comparison {
       background: white;
-      padding: 2.5rem 1rem;
+      padding: 3rem 1rem;
       text-align: center;
     }
-    
+
     .comparison h2 {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
       color: #0f172a;
     }
-    
-    .comparison-table {
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-      text-align: left;
-      font-size: 0.875rem;
+
+    .comparison-subtitle {
+      font-size: 0.9375rem;
+      color: #64748b;
+      margin-bottom: 2rem;
     }
-    
-    .table-header {
+
+    .pricing-cards {
       display: grid;
-      grid-template-columns: 1fr 50px 50px;
-      gap: 0.5rem;
-      padding: 0.75rem 0;
-      border-bottom: 2px solid #e2e8f0;
-      font-weight: 600;
-      color: #24acdd;
-      text-align: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    
-    .table-header div:first-child {
+
+    .pricing-card {
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
       text-align: left;
+      display: flex;
+      flex-direction: column;
     }
-    
-    .table-section {
-      padding: 0.75rem 0 0.5rem;
+
+    .pricing-card-free {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    .pricing-card-premium {
+      background: linear-gradient(135deg, #f0faff 0%, #e8f7ff 100%);
+      border: 2px solid #24acdd;
+      position: relative;
+    }
+
+    .pricing-card-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #24acdd;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .pricing-card-tier {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-card-price {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-card-price span {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: #64748b;
+    }
+
+    .pricing-card-trial {
+      font-size: 0.8125rem;
+      color: #24acdd;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-card-divider {
+      height: 1px;
+      background: #e2e8f0;
+      margin: 1rem 0;
+    }
+
+    .pricing-card-section {
+      font-size: 0.75rem;
       font-weight: 600;
       color: #24acdd;
-      font-size: 0.8125rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      margin-top: 0.75rem;
     }
-    
-    .table-row {
-      display: grid;
-      grid-template-columns: 1fr 50px 50px;
-      gap: 0.5rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #f1f5f9;
-      align-items: center;
+
+    .pricing-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 auto;
     }
-    
-    .table-row div:first-child {
+
+    .pricing-card-list li {
+      font-size: 0.8125rem;
       color: #334155;
+      padding: 0.3rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.4;
     }
-    
-    .table-row .check,
-    .table-row .cross {
-      text-align: center;
-      font-weight: 500;
-    }
-    
-    .table-row .check {
+
+    .pricing-card-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
       color: #22c55e;
+      font-weight: 600;
     }
-    
-    .table-row .cross {
-      color: #cbd5e1;
+
+    .pricing-card-list li.new-feature::after {
+      content: "NEW";
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: #24acdd;
+      background: #e8f7ff;
+      padding: 0.1rem 0.375rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      letter-spacing: 0.03em;
     }
-    
-    .comparison-note {
-      font-size: 0.875rem;
+
+    .pricing-card-includes {
+      font-size: 0.8125rem;
+      font-weight: 600;
       color: #64748b;
-      margin-bottom: 1.5rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card-cta {
+      display: block;
+      text-align: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      margin-top: 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .pricing-card-free .pricing-card-cta {
+      background: white;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+
+    .pricing-card-free .pricing-card-cta:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .pricing-card-premium .pricing-card-cta {
+      background: #24acdd;
+      color: white;
+      border: 1px solid #24acdd;
+      box-shadow: 0 2px 8px rgba(36, 172, 221, 0.3);
+    }
+
+    .pricing-card-premium .pricing-card-cta:hover {
+      background: #1d9ac7;
+      box-shadow: 0 4px 12px rgba(36, 172, 221, 0.4);
+    }
+
+    @media (max-width: 640px) {
+      .pricing-cards {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
     }
     
     /* About Section */
@@ -363,100 +705,79 @@
       background: #f8fafc;
       padding: 3rem 1rem;
     }
-    
+
     .features-section h2 {
       text-align: center;
       font-size: 1.5rem;
       font-weight: 700;
       color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .features-subtitle {
+      text-align: center;
+      font-size: 0.9375rem;
+      color: #64748b;
       margin-bottom: 2rem;
     }
-    
-    .feature-steps {
-      max-width: 800px;
+
+    .feature-grid {
+      max-width: 900px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
     }
-    
-    .step {
+
+    .feature-card {
       background: white;
       border-radius: 16px;
       padding: 1.5rem;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: auto auto;
-      gap: 1rem 1.5rem;
-      position: relative;
+      border: 1px solid #f1f5f9;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
-    
-    .step-number {
-      grid-row: 1 / 3;
-      background: #24acdd;
-      color: white;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+
+    .feature-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .feature-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
       font-size: 1rem;
-      flex-shrink: 0;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
     }
-    
-    .step-image {
-      grid-column: 2;
-    }
-    
-    .step-image img {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .step-banner {
-      width: 100%;
-      height: 200px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.875rem;
+
+    .feature-card p {
+      font-size: 0.8125rem;
       color: #64748b;
-      border: 2px dashed #cbd5e1;
-      background: #f1f5f9;
+      line-height: 1.5;
     }
-    
-    .step-content {
-      grid-column: 2;
+
+    @media (max-width: 768px) {
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
-    
-    .step-content h3 {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: #24ACDD;
-      margin-bottom: 0.75rem;
-    }
-    
-    .step-content ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .step-content li {
-      font-size: 0.875rem;
-      color: #64748b;
-      padding: 0.375rem 0;
-      line-height: 1.4;
-    }
-    
-    .step-content li strong {
-      color: #334155;
+
+    @media (max-width: 480px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
     }
     
     footer {
@@ -537,60 +858,8 @@
         max-height: 350px;
       }
       
-      .comparison {
-        padding: 2rem 0;
-      }
-      
-      .comparison h2 {
-        padding: 0 1rem;
-      }
-      
-      .comparison-table {
-        font-size: 0.8125rem;
-        max-width: 100%;
-        padding: 0 1rem;
-      }
-      
-      .table-header,
-      .table-row {
-        grid-template-columns: 1fr 40px 40px;
-      }
-      
-      .comparison-note,
-      .comparison .support-link {
-        padding: 0 1rem;
-      }
-      
       .features-section {
         padding: 2rem 1rem;
-      }
-      
-      .step {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        text-align: center;
-      }
-      
-      .step-number {
-        grid-row: auto;
-        margin: 0 auto 0.5rem;
-      }
-      
-      .step-image {
-        grid-column: 1;
-      }
-      
-      .step-banner {
-        height: 150px;
-      }
-      
-      .step-content {
-        grid-column: 1;
-        text-align: left;
-      }
-      
-      .step-content h3 {
-        text-align: center;
       }
     }
   </style>
@@ -601,21 +870,71 @@
     <div class="container">
       <div class="hero-text">
         <img class="logo" src="images/logo.png" alt="myMECA" />
-        
-        <h1>Your Pay. Your Roster. Your Dashboard.</h1>
-        <p class="tagline">The pay calculator NZ healthcare workers actually need — now with shift planning, templates, and more</p>
 
-        <!-- Phone with centered button -->
-        <div class="hero-phone-wrapper">
-          <img class="hero-phone-img" src="images/hero.png" alt="myMECA pay dashboard showing take home pay">
-          <a class="cta-button" href="https://app.mymeca.nz">
-            <img src="images/iconblue.png" alt="">
-            <span>Enter App</span>
-          </a>
+        <h1>Your Pay. Your Roster. Your Dashboard.</h1>
+        <p class="tagline">Purpose-built for NZ healthcare workers.</p>
+
+        <div class="hero-actions">
+          <div class="cta-row">
+            <div class="cta-steps">
+              <div class="cta-step">
+                <span class="cta-step-num">1</span>
+                <span>Sign&nbsp;up</span>
+              </div>
+              <span class="cta-step-arrow">&rarr;</span>
+              <div class="cta-step">
+                <span class="cta-step-num">2</span>
+                <span>Profile</span>
+              </div>
+              <span class="cta-step-arrow">&rarr;</span>
+              <div class="cta-step">
+                <span class="cta-step-num">3</span>
+                <span>Calculate</span>
+              </div>
+            </div>
+            <a class="cta-button" href="https://app.mymeca.nz">
+              <img src="images/iconblue.png" alt="">
+              <span class="cta-button-text">Get Started<span class="cta-button-sub">Free — no credit card required</span></span>
+            </a>
+          </div>
+          <p class="platform-line">Works in your browser — phone, tablet, or desktop</p>
+          <div class="android-badge">
+            <svg class="android-badge-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.6 3 21.09 3 20.5Z" fill="#4285F4"/>
+              <path d="M16.81 15.12L6.05 21.34L13.69 12L16.81 15.12Z" fill="#EA4335"/>
+              <path d="M20.16 10.81C20.5 11.08 20.75 11.5 20.75 12C20.75 12.5 20.53 12.9 20.18 13.18L17.89 14.5L14.5 12L17.89 9.5L20.16 10.81Z" fill="#FBBC04"/>
+              <path d="M6.05 2.66L16.81 8.88L13.69 12L6.05 2.66Z" fill="#34A853"/>
+            </svg>
+            <div class="android-badge-text">
+              <span class="android-badge-sub">COMING SOON ON</span>
+              <span class="android-badge-main">Google Play</span>
+            </div>
+          </div>
         </div>
 
-        <p class="platform-line">Works in your browser — phone, tablet, or desktop</p>
-        <div class="android-badge">Android app coming soon</div>
+        <!-- Device Showcase -->
+        <div class="device-showcase">
+          <div class="browser-frame">
+            <div class="browser-tab-bar">
+              <div class="browser-tab">
+                <img class="browser-tab-icon" src="images/iconblue.png" alt="">
+                <span>myMECA</span>
+              </div>
+            </div>
+            <div class="browser-url-bar">
+              <div class="browser-url">
+                <svg class="browser-url-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>app.mymeca.nz</span>
+              </div>
+            </div>
+            <div class="browser-content">
+              <img src="images/desktop.png" alt="myMECA desktop dashboard">
+            </div>
+          </div>
+          <div class="phone-frame">
+            <img src="images/mobile.png" alt="myMECA mobile app">
+          </div>
+        </div>
       </div>
       <br><br>
       <!-- Scroll indicator -->
@@ -630,206 +949,130 @@
   <!-- Features Section -->
   <section id="features" class="features-section">
     <h2>Everything in one place</h2>
-    
-    <div class="feature-steps">
-      <!-- Step 1 -->
-      <div class="step">
-        <div class="step-number">1</div>
-        <div class="step-image">
-          <img src="images/banner1_settings.png">
+    <p class="features-subtitle">Set up once. Use every pay cycle.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon" style="background: #e8f7ff; color: #24acdd;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
-        <div class="step-content">
-          <h3>Personalised to you</h3>
-          <ul>
-            <li><strong>Your pay, your way</strong> — Choose your MECA (NZNO-HNZ or PHC), pay scale, and step</li>
-            <li><strong>Casual friendly</strong> — 8% holiday pay added automatically</li>
-            <li><strong>Deductions built in</strong> — KiwiSaver, Student Loan, and NZNO Levy</li>
-            <li><strong>Allowances included</strong> — PDRP, merit, and coordinator allowances</li>
-            <li><strong>Custom shifts</strong> — Create your own shifts and remove the ones you don't need</li>
-          </ul>
-        </div>
+        <h3>Personalised to you</h3>
+        <p>Choose your MECA (NZNO-HNZ or PHC), pay scale, step, and deductions. PDRP, merit, and coordinator allowances all included.</p>
       </div>
-      
-      <!-- Step 2 -->
-      <div class="step">
-        <div class="step-number">2</div>
-        <div class="step-image">
-          <img src="images/banner2_calendar.png">
+
+      <div class="feature-card">
+        <div class="feature-card-icon" style="background: #f0fdf4; color: #22c55e;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <div class="step-content">
-          <h3>More than a calculator</h3>
-          <ul>
-            <li><strong>Real dates</strong> — Load shifts against your actual roster dates</li>
-            <li><strong>Holidays covered</strong> — Public holidays and leave handled automatically</li>
-            <li><strong>Templates</strong> — Save shift patterns as templates and reuse them</li>
-            <li><strong>Calendar export</strong> — Export your roster to Google Calendar or Apple Calendar</li>
-            <li><strong>Shift swap</strong> — Model a shift swap and see the pay difference before you agree</li>
-          </ul>
-        </div>
+        <h3>Plan your roster</h3>
+        <p>Load shifts against real dates. Public holidays and leave handled automatically. Your full roster in your pocket.</p>
       </div>
-      
-      <!-- Step 3 -->
-      <div class="step">
-        <div class="step-number">3</div>
-        <div class="step-image">
-          <img src="images/banner3_pay.png">
+
+      <div class="feature-card">
+        <div class="feature-card-icon" style="background: #fef9ee; color: #eab308;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <div class="step-content">
-          <h3>See the full picture</h3>
-          <ul>
-            <li><strong>Instant breakdown</strong> — Days, nights, weekends, on-call, overtime all calculated</li>
-            <li><strong>Compare fortnights</strong> — See how this fortnight stacks up against last</li>
-            <li><strong>Stay on track</strong> — Track your PD hours and APC renewal</li>
-            <li><strong>Deductions done</strong> — PAYE, KiwiSaver, Student Loan applied automatically</li>
-            <li><strong>Real take-home</strong> — Clear take-home pay showing exactly what hits your account</li>
-          </ul>
+        <h3>Know your pay</h3>
+        <p>Instant breakdown of gross and net. Days, nights, weekends, on-call, overtime — PAYE, KiwiSaver, and Student Loan applied automatically.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card-icon" style="background: #faf5ff; color: #a855f7;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
         </div>
+        <h3>Shift swap modelling</h3>
+        <p>See the exact dollar difference before you agree to a swap. Compare gross pay, penal hours, and overtime impact side by side.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card-icon" style="background: #fef2f2; color: #ef4444;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+        </div>
+        <h3>Templates &amp; calendar</h3>
+        <p>Save your shift pattern as a template and reuse it every roster cycle. Export to Google Calendar or Apple Calendar.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card-icon" style="background: #ecfdf5; color: #10b981;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Stay on track</h3>
+        <p>Compare fortnights at a glance. Track your PD hours throughout the year. Get reminders when your APC renewal is due.</p>
       </div>
     </div>
   </section>
 
-  <!-- Feature Comparison -->
+  <!-- Pricing -->
   <section id="comparison" class="comparison">
     <h2>Free vs Premium</h2>
-    
-    <div class="comparison-table">
-      <div class="table-header">
-        <div>Feature</div>
-        <div>Free</div>
-        <div>Premium</div>
-      </div>
-      
-      <div class="table-section">Calculations</div>
-      
-      <div class="table-row">
-        <div>Basic pay calculations</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>All pay scales</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Tax &amp; deductions (PAYE, KiwiSaver, Student Loan)</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Public holidays</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Leave - Annual, Sick etc</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Daily overtime calculations</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Fortightly overtime calculations</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>	  
-      <div class="table-row">
-        <div>On-call shifts</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Shift coordinator allowance</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      
-      <div class="table-section">Features</div>
-      
-      <div class="table-row">
-        <div>Unlimited shifts</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Calendar roster view</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Fortnight pay summaries</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Custom hourly rate</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Custom shifts</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Shift notes</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Multi-MECA Support (NZNO-HNZ &amp; PHC)</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Fortnight Templates</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Export to Calendar</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Fortnight Comparison View</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>Shift Swap Modelling</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>PD Hours Tracker</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
-      </div>
-      <div class="table-row">
-        <div>APC Renewal Reminders</div>
-        <div class="check">✓</div>
-        <div class="check">✓</div>
+    <p class="comparison-subtitle">Pay calculations are free — forever. Premium unlocks the full toolkit.</p>
+
+    <div class="pricing-cards">
+      <!-- Free Card -->
+      <div class="pricing-card pricing-card-free">
+        <div class="pricing-card-tier">Free</div>
+        <div class="pricing-card-price">$0</div>
+        <div class="pricing-card-divider"></div>
+
+        <div class="pricing-card-section">Calculations</div>
+        <ul class="pricing-card-list">
+          <li>Basic pay calculations</li>
+          <li>All pay scales</li>
+          <li>PAYE, KiwiSaver, Student Loan</li>
+          <li>Public holidays</li>
+          <li>Fortnightly overtime</li>
+        </ul>
+
+        <div class="pricing-card-section">Features</div>
+        <ul class="pricing-card-list">
+          <li class="new-feature">Multi-MECA support (NZNO-HNZ &amp; PHC)</li>
+          <li>Calendar roster view</li>
+          <li>Fortnight pay summaries</li>
+          <li>Custom hourly rate</li>
+          <li class="new-feature">Export to Calendar</li>
+          <li class="new-feature">PD Hours Tracker</li>
+          <li class="new-feature">APC Renewal Reminders</li>
+        </ul>
+
+        <a class="pricing-card-cta" href="https://app.mymeca.nz">Enter App</a>
       </div>
 
-	<div class="table-section">Support</div>
-      
-      <div class="table-row">
-        <div>Immediate access to new features</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>	
-      <div class="table-row">
-        <div>Priority support</div>
-        <div class="cross">—</div>
-        <div class="check">✓</div>
-      </div>	
-    </div>	  
-    
-    <p class="comparison-note">Pay calculations are free — forever.<br>Premium unlocks the full toolkit · 7-day free trial · $3.99 NZD/month</p>
+      <!-- Premium Card -->
+      <div class="pricing-card pricing-card-premium">
+        <div class="pricing-card-tier">Premium</div>
+        <div class="pricing-card-price">$3.99 <span>NZD/month</span></div>
+        <div class="pricing-card-trial">7-day free trial</div>
+        <div class="pricing-card-divider"></div>
+
+        <p class="pricing-card-includes">Everything in Free, plus:</p>
+
+        <div class="pricing-card-section">Calculations</div>
+        <ul class="pricing-card-list">
+          <li>Leave — Annual, Sick etc</li>
+          <li>Daily overtime</li>
+          <li>On-call shifts</li>
+          <li>Shift coordinator allowance</li>
+        </ul>
+
+        <div class="pricing-card-section">Features</div>
+        <ul class="pricing-card-list">
+          <li>Unlimited shifts</li>
+          <li>Custom shifts</li>
+          <li>Shift notes</li>
+          <li class="new-feature">Fortnight Templates</li>
+          <li class="new-feature">Fortnight Comparison</li>
+          <li class="new-feature">Shift Swap Modelling</li>
+        </ul>
+
+        <div class="pricing-card-section">Support</div>
+        <ul class="pricing-card-list">
+          <li>Immediate access to new features</li>
+          <li>Priority support</li>
+        </ul>
+
+        <a class="pricing-card-cta" href="https://app.mymeca.nz">Enter App</a>
+      </div>
+    </div>
   </section>
 
   <!-- About Section -->
