@@ -11,13 +11,13 @@
 	</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>myMECA — Pay Calculator for NZ Healthcare Workers</title>
-  <meta name="description" content="A simple pay calculator for New Zealand healthcare workers. Fast, easy, accurate MECA pay calculations.">
+  <title>myMECA — Pay Dashboard for NZ Healthcare Workers</title>
+  <meta name="description" content="Pay calculator, roster planner, and shift dashboard for New Zealand nurses and healthcare workers. NZNO-HNZ and PHC MECA support. Works on phone, tablet, and desktop.">
   <meta name="author" content="SHMAKE">
-  <meta name="keywords" content="nurses, pay calculator, NZNO, myMECA, MECA, healthcare, New Zealand">
+  <meta name="keywords" content="nurses, pay calculator, NZNO, PHC, myMECA, MECA, healthcare, New Zealand, roster, shift planner">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="myMECA — Pay Calculator for NZ Healthcare Workers">
-  <meta property="og:description" content="Never guess your pay again. Fast, accurate calculations for NZNO healthcare workers.">
+  <meta property="og:title" content="myMECA — Pay Dashboard for NZ Healthcare Workers">
+  <meta property="og:description" content="Your pay. Your roster. Your dashboard. MECA pay calculations, shift planning, and more — built for NZ nurses and healthcare workers.">
   <meta property="og:image" content="https://mymeca.nz/images/ogimage.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="favicon.ico">
@@ -179,6 +179,26 @@
       height: 20px;
     }
     
+    .platform-line {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+      margin-top: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .android-badge {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.375rem 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      color: white;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
 /* Hero Phone with centered button */
     .hero-phone-wrapper {
       position: relative;
@@ -582,17 +602,20 @@
       <div class="hero-text">
         <img class="logo" src="images/logo.png" alt="myMECA" />
         
-        <h1>Never Guess Your Pay Again</h1>
-        <p class="tagline">Fast, accurate calculations for NZ healthcare workers</p>
-        
+        <h1>Your Pay. Your Roster. Your Dashboard.</h1>
+        <p class="tagline">The pay calculator NZ healthcare workers actually need — now with shift planning, templates, and more</p>
+
         <!-- Phone with centered button -->
         <div class="hero-phone-wrapper">
-          <img class="hero-phone-img" src="images/hero.png" alt="myMECA pay calculator showing take home pay">
+          <img class="hero-phone-img" src="images/hero.png" alt="myMECA pay dashboard showing take home pay">
           <a class="cta-button" href="https://app.mymeca.nz">
             <img src="images/iconblue.png" alt="">
             <span>Enter App</span>
           </a>
         </div>
+
+        <p class="platform-line">Works in your browser — phone, tablet, or desktop</p>
+        <div class="android-badge">Android app coming soon</div>
       </div>
       <br><br>
       <!-- Scroll indicator -->
@@ -606,7 +629,7 @@
 
   <!-- Features Section -->
   <section id="features" class="features-section">
-    <h2>How it works</h2>
+    <h2>Everything in one place</h2>
     
     <div class="feature-steps">
       <!-- Step 1 -->
@@ -806,7 +829,7 @@
       </div>	
     </div>	  
     
-    <p class="comparison-note">7-day free trial · $3.99 NZD/month</p>
+    <p class="comparison-note">Pay calculations are free — forever.<br>Premium unlocks the full toolkit · 7-day free trial · $3.99 NZD/month</p>
   </section>
 
   <!-- About Section -->
@@ -847,7 +870,7 @@
         </svg>
       </a>
     </div>
-    <p class="copyright">© 2025 myMECA · A <a href="https://shmake.nz" target="_blank" rel="noopener">
+    <p class="copyright">© 2026 myMECA · A <a href="https://shmake.nz" target="_blank" rel="noopener">
         <img src="images/shmake-logo-dark.png" alt="SHMAKE" style="height: 10px;"></a> project</p>
   </footer>
 
